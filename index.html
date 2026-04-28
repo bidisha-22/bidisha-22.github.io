@@ -3,99 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidisha | Agriculture & AI Researcher</title>
+    <title>Bidisha Dash | Agriculture & AI Researcher</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .accent-green { color: #4ade80; }
-        .btn-primary { background: #4ade80; color: #0f172a; transition: all 0.3s ease; }
-        .btn-primary:hover { background: #22c55e; transform: translateY(-2px); }
+        
+        /* Contact Icon Styling */
+        .glass-icon {
+            display: flex; align-items: center; justify-content: center;
+            width: 70px; height: 70px; border-radius: 50%; position: relative;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-icon:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1); border-color: rgba(74, 222, 128, 0.5);
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
 
     <nav class="max-w-5xl mx-auto flex justify-between items-center mb-16">
         <h1 class="text-xl font-bold tracking-tighter uppercase">Bidisha<span class="accent-green">.AgTech</span></h1>
-        <div class="space-x-6 text-sm font-medium hidden md:block">
+        <div class="space-x-6 text-sm font-medium hidden md:block text-slate-400">
             <a href="#about" class="hover:text-green-400">About</a>
             <a href="#research" class="hover:text-green-400">Research</a>
             <a href="#projects" class="hover:text-green-400">AI Projects</a>
-            <a href="#contact" class="hover:text-green-400">Contact</a>
         </div>
     </nav>
 
-    <header class="max-w-5xl mx-auto mb-24">
-        <div class="md:w-2/3">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Bridging <span class="accent-green">Agriculture</span> and AI.</h2>
-            <p class="text-lg text-slate-400 mb-8 leading-relaxed">
-                BSc Agriculture graduate from India. Specialized in Plant Biotechnology and Genetics, 
-                now leveraging AI/ML to solve real-world agricultural bottlenecks. Currently pursuing 
-                international Master's opportunities.
+    <header class="max-w-5xl mx-auto mb-16 text-center mt-12 px-6">
+        <div class="relative inline-block mb-10">
+            <div class="absolute -inset-2 bg-gradient-to-r from-green-500/30 to-blue-500/30 blur-2xl opacity-70 rounded-full"></div>
+            
+            <img src="profile.jpg" alt="Bidisha Dash" class="relative w-40 h-40 md:w-52 md:h-52 rounded-full border-8 border-slate-800 object-cover shadow-2xl mx-auto">
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-5 tracking-tighter text-white">BIDISHA DASH</h1>
+        <p class="text-xl md:text-2xl accent-green font-semibold mb-10 tracking-wide uppercase">BSc Agriculture & AI Researcher</p>
+
+        <div class="md:w-2/3 mx-auto">
+            <p class="text-lg text-slate-400 leading-relaxed">
+                Agriculture graduate from India passionate about bridging traditional farming with Data Science. 
+                Focusing on AI/ML to optimize crop management and solve agricultural bottlenecks.
             </p>
-            <div class="flex gap-4">
-                <a href="#contact" class="btn-primary px-6 py-3 rounded-lg font-bold">Contact Me</a>
-                <a href="#research" class="glass px-6 py-3 rounded-lg font-bold">View Research</a>
-            </div>
         </div>
     </header>
 
-    <section id="about" class="max-w-5xl mx-auto mb-24">
+    <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
+        
+        <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group">
+            <i class="fa-brands fa-github text-3xl text-slate-400 group-hover:text-white"></i>
+        </a>
+
+        <a href="#" target="_blank" class="glass-icon group">
+            <i class="fa-brands fa-linkedin text-3xl text-slate-400 group-hover:text-blue-400"></i>
+        </a>
+
+        <a href="mailto:your-email@example.com" class="glass-icon group">
+            <i class="fa-solid fa-envelope text-3xl text-slate-400 group-hover:text-amber-400"></i>
+            <i class="fa-solid fa-leaf text-xs text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </a>
+
+        <a href="#" target="_blank" class="glass-icon group">
+            <i class="fa-solid fa-file-pdf text-3xl text-slate-400 group-hover:text-red-400"></i>
+        </a>
+
+    </div>
+
+    <section id="about" class="max-w-5xl mx-auto mb-24 px-6">
         <h3 class="text-2xl font-bold mb-8 flex items-center"><span class="accent-green mr-2">01.</span> The Journey</h3>
-        <div class="space-y-8 border-l-2 border-slate-700 ml-4 pl-8">
+        <div class="space-y-12 border-l-2 border-slate-800 ml-4 pl-8">
             <div class="relative">
-                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-green-400"></div>
-                <h4 class="font-bold text-xl text-white">BSc Agriculture (Hons)</h4>
+                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
+                <h4 class="font-bold text-xl text-white">BSc Agriculture Graduate</h4>
                 <p class="text-sm text-green-400 mb-2">2021 — 2025 | India</p>
-                <p class="text-slate-400 max-w-2xl">Foundational expertise in Plant Biotechnology, Genetics, and Soil Science. Conducted practical research in DNA extraction and phenotyping.</p>
+                <p class="text-slate-400 max-w-2xl">Completed intensive coursework in Soil Science, Genetics, and Plant Breeding. Specialized in field phenotyping and laboratory analysis.</p>
             </div>
             <div class="relative">
-                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-600"></div>
-                <h4 class="font-bold text-xl text-white">Research & Publications</h4>
+                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700"></div>
+                <h4 class="font-bold text-xl text-white">Ag-Tech Research & AI Focus</h4>
                 <p class="text-sm text-green-400 mb-2">2024 — Present</p>
-                <p class="text-slate-400 max-w-2xl">Authored review papers on innovative agricultural practices. Transitioned into AI/ML integration for Ag-systems.</p>
+                <p class="text-slate-400 max-w-2xl">Transitioned into computational agriculture. Developing ML models for crop disease detection and authoring review papers on Ag-Innovation.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="max-w-5xl mx-auto mb-24">
-        <h3 class="text-2xl font-bold mb-8 flex items-center"><span class="accent-green mr-2">02.</span> AI/ML in Agriculture</h3>
+    <section id="projects" class="max-w-5xl mx-auto mb-24 px-6">
+        <h3 class="text-2xl font-bold mb-8 flex items-center"><span class="accent-green mr-2">02.</span> AI/ML Projects</h3>
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="glass p-8 rounded-2xl hover:border-green-400/50 transition-colors">
-                <i class="fa-solid fa-leaf text-3xl accent-green mb-4"></i>
-                <h4 class="text-xl font-bold mb-2">Crop Health Classifier</h4>
-                <p class="text-slate-400 text-sm mb-4">Using Python and CNNs to identify pest infestation in Paddy crops from image data.</p>
-                <div class="flex gap-2 text-xs font-mono opacity-70">
-                    <span>#Python</span> <span>#TensorFlow</span> <span>#ComputerVision</span>
+            <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all group">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fa-solid fa-seedling text-3xl accent-green"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-white transition-colors"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Pest Infestation Classifier</h4>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Developing a CNN model to identify early-stage pest damage in Paddy crops using image datasets.</p>
+                <div class="flex gap-3 text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase">
+                    <span>Python</span> <span>TensorFlow</span> <span>CV</span>
                 </div>
             </div>
-            <div class="glass p-8 rounded-2xl hover:border-green-400/50 transition-colors">
-                <i class="fa-solid fa-chart-line text-3xl accent-green mb-4"></i>
-                <h4 class="text-xl font-bold mb-2">Yield Prediction Model</h4>
-                <p class="text-slate-400 text-sm mb-4">Integrating soil salinity data and weather patterns to forecast crop output using ML algorithms.</p>
-                <div class="flex gap-2 text-xs font-mono opacity-70">
-                    <span>#DataScience</span> <span>#Agriculture</span> <span>#ML</span>
+            <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all group">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fa-solid fa-droplet text-3xl accent-green"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-white transition-colors"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Soil Salinity Predictor</h4>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Predicting soil health outcomes by integrating multispectral data with environmental sensors.</p>
+                <div class="flex gap-3 text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase">
+                    <span>Scikit-Learn</span> <span>Pandas</span> <span>ML</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="research" class="max-w-5xl mx-auto mb-24 text-center">
-        <div class="glass p-12 rounded-3xl">
-            <h3 class="text-3xl font-bold mb-4">Research & Publications</h3>
-            <p class="text-slate-400 mb-8">Showcasing academic contributions and review papers.</p>
-            <a href="#" class="text-green-400 font-bold border-b-2 border-green-400 pb-1 hover:text-white hover:border-white transition-all">Download Full Publication List (PDF)</a>
-        </div>
-    </section>
-
-    <footer id="contact" class="max-w-5xl mx-auto py-12 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm mb-4">Designed for Master's Admissions 2026</p>
-        <div class="flex justify-center gap-6 text-2xl text-slate-400">
-            <a href="https://github.com/bidisha-22" class="hover:text-green-400 transition-colors"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="hover:text-green-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:your-email@example.com" class="hover:text-green-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+    <footer class="max-w-5xl mx-auto py-12 border-t border-slate-900 text-center text-slate-500 text-xs">
+        <p>© 2026 Bidisha Dash | Built for Master's Admissions</p>
     </footer>
 
 </body>
