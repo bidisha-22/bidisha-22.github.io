@@ -33,6 +33,32 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+        /* Agri-icon specific styling */
+        .custom-ag-icon {
+            position: absolute;
+            width: 40px; 
+            height: 40px;
+            object-fit: contain;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.5) rotate(-10deg);
+            pointer-events: none;
+        }
+
+        /* Hover interaction: Hide standard icon, show Agri-icon */
+        .glass-icon:hover i {
+            opacity: 0;
+        }
+
+        .glass-icon:hover .custom-ag-icon {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+        
+        .glass-icon:hover {
+            border-color: rgba(74, 222, 128, 0.6);
+            box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -63,26 +89,26 @@
         </div>
     </header>
 
-   <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
+  <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
         
-        <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group">
-            <i class="fa-brands fa-github text-3xl text-slate-400 group-hover:text-white transition-colors"></i>
-            <i class="fa-solid fa-seedling text-xs text-green-500 absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125"></i>
+        <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group" title="GitHub / Mobile Ag-Tech">
+            <i class="fa-brands fa-github text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-agriculture-64 (1).png" alt="Mobile Tech" class="custom-ag-icon">
         </a>
 
-        <a href="#" target="_blank" class="glass-icon group">
-            <i class="fa-brands fa-linkedin text-3xl text-slate-400 group-hover:text-blue-400 transition-colors"></i>
-            <i class="fa-solid fa-seedling text-xs text-green-500 absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125"></i>
+        <a href="#" target="_blank" class="glass-icon group" title="LinkedIn / Professional Growth">
+            <i class="fa-brands fa-linkedin text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-planting-78.png" alt="Growth" class="custom-ag-icon">
         </a>
 
-        <a href="mailto:your-email@example.com" class="glass-icon group">
-            <i class="fa-solid fa-envelope text-3xl text-slate-400 group-hover:text-amber-400 transition-colors"></i>
-            <i class="fa-solid fa-leaf text-xs text-green-500 absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125"></i>
+        <a href="mailto:your-email@example.com" class="glass-icon group" title="Email / Crop Protection">
+            <i class="fa-solid fa-envelope text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-agriculture-85.png" alt="Pest Management" class="custom-ag-icon">
         </a>
 
-        <a href="#" target="_blank" class="glass-icon group">
-            <i class="fa-solid fa-file-pdf text-3xl text-slate-400 group-hover:text-red-400 transition-colors"></i>
-            <i class="fa-solid fa-seedling text-xs text-green-500 absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125"></i>
+        <a href="#" target="_blank" class="glass-icon group" title="CV / Field Research">
+            <i class="fa-solid fa-file-pdf text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-soil-100.png" alt="Soil Research" class="custom-ag-icon">
         </a>
 
     </div>
