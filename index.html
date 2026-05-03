@@ -11,83 +11,84 @@
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .accent-green { color: #4ade80; }
         
-        /* Contact Icon Styling */
+        /* Standard Social Icon Styling */
         .glass-icon {
             display: flex; align-items: center; justify-content: center;
             width: 70px; height: 70px; border-radius: 50%; position: relative;
             background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.3s ease;
         }
-        .glass-icon:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1); border-color: rgba(74, 222, 128, 0.5);
-        }
-        #typewriter-name::after {
-    content: '|';
-    animation: blink 1s infinite;
-    color: #4ade80; /* Matches your green accent */
-    margin-left: 5px;
-}
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-        /* Agri-icon specific styling */
+        /* Typewriter Cursor */
+        #typewriter-name::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #4ade80;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Agri-icon overlay for Social Icons */
         .custom-ag-icon {
             position: absolute;
-            width: 40px; 
-            height: 40px;
-            object-fit: contain;
+            width: 40px; height: 40px; object-fit: contain;
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform: scale(0.5) rotate(-10deg);
             pointer-events: none;
         }
 
-        /* Hover interaction: Hide standard icon, show Agri-icon */
-        .glass-icon:hover i {
-            opacity: 0;
+        .glass-icon:hover i { opacity: 0; }
+        .glass-icon:hover .custom-ag-icon { opacity: 1; transform: scale(1) rotate(0deg); }
+        
+        /* Compact View Projects Button Styling */
+        .btn-projects {
+            width: auto !important;
+            height: auto !important;
+            padding: 12px 32px !important;
+            border-radius: 9999px !important;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .glass-icon:hover .custom-ag-icon {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-        }
-        
-        .glass-icon:hover {
-            border-color: rgba(74, 222, 128, 0.6);
-            box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
-        /* Specialized positioning for the new oval button icon */
-       /* 1. Icon: Hidden, smaller, and tucked left by default */
-        .glass-icon img.view-projects-icon {
+        .view-projects-icon {
             position: absolute;
             left: 15px;
             top: 50%;
             transform: translateY(-50%) scale(0.5);
-            width: 20px;
-            height: 20px;
-            opacity: 0;
+            width: 22px;
+            height: 22px;
+            opacity: 0; /* Hidden by default */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
-        /* 2. Icon: Fades in and scales up to full size on hover */
-        .glass-icon:hover img.view-projects-icon {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
-        }
-
-        /* 3. Text: Centered by default */
-        .glass-icon span {
+        .btn-projects span {
             transition: all 0.3s ease;
             margin-left: 0;
             display: inline-block;
         }
 
-        /* 4. Text: Shifts right to make room for the icon on hover */
-        .glass-icon:hover span {
-            margin-left: 25px;
+        /* Hover logic: Only show icon and shift text on cursor hover */
+        .btn-projects:hover .view-projects-icon {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .btn-projects:hover span {
+            margin-left: 28px;
+        }
+
+        .btn-projects:hover {
+            border-color: rgba(74, 222, 128, 0.6);
+            box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -103,7 +104,6 @@
     <header class="max-w-5xl mx-auto mb-16 text-center mt-12 px-6">
         <div class="relative inline-block mb-10">
             <div class="absolute -inset-2 bg-gradient-to-r from-green-500/30 to-blue-500/30 blur-2xl opacity-70 rounded-full"></div>
-            
             <img src="profile.jpeg" alt="Bidisha Dash" class="relative w-40 h-40 md:w-52 md:h-52 rounded-full border-8 border-slate-800 object-cover shadow-2xl mx-auto">
         </div>
 
@@ -117,23 +117,17 @@
             </p>
         </div>
     </header>
-<!-- New Separated Container for the Projects Button -->
-    <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center">
-        <!-- The button links to the "my-projects" ID we will create next -->
-        <a href="#my-projects" class="glass-icon group px-12 py-5 h-auto w-auto rounded-full text-lg tracking-tight hover:border-green-400">
-            <!-- This is the icon you provided, renamed to icon-crop.png -->
-            <img src="icons8-agriculture-64.png" alt="Crop Icon" class="view-projects-icon">
-            <span class="accent-green font-bold ml-6">View Projects</span>
-        <!-- Compact version of the View Projects button -->
+
+    <!-- Compact View Projects Button -->
     <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center">
-        <a href="#my-projects" class="glass-icon group px-8 py-3 h-auto w-auto rounded-full text-sm tracking-wide hover:border-green-400 flex items-center relative">
-            <img src="icon-crop.png" alt="Crop Icon" class="view-projects-icon">
-            <span class="accent-green font-bold transition-all duration-300">View Projects</span>
+        <a href="#my-projects" class="glass-icon btn-projects group hover:border-green-400">
+            <img src="icons8-agriculture-64.png" alt="Crop Icon" class="view-projects-icon">
+            <span class="accent-green font-bold">View Projects</span>
         </a>
     </div>
-    </div>
-  <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
-        
+
+    <!-- Social Icons -->
+    <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
         <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group" title="GitHub">
             <i class="fa-brands fa-github text-3xl text-slate-400 transition-all"></i>
             <img src="icons8-agriculture-64 (1).png" alt="Mobile Tech" class="custom-ag-icon">
@@ -144,7 +138,7 @@
             <img src="icons8-planting-78.png" alt="Growth" class="custom-ag-icon">
         </a>
 
-        <a href="bidisha.dash28@gmail.com" class="glass-icon group" title="Email">
+        <a href="mailto:bidisha.dash28@gmail.com" class="glass-icon group" title="Email">
             <i class="fa-solid fa-envelope text-3xl text-slate-400 transition-all"></i>
             <img src="icons8-agriculture-85.png" alt="Pest Management" class="custom-ag-icon">
         </a>
@@ -172,34 +166,31 @@
             </div>
         </div>
     </section>
-<!-- ============================================ -->
-    <!-- NEW SECTION 02: MY PROJECTS -->
-    <!-- ============================================ -->
-    <!-- The ID 'my-projects' allows the oval button to anchor here -->
+
     <section id="my-projects" class="max-w-5xl mx-auto mb-24 px-6">
         <h3 class="text-2xl font-bold mb-8 flex items-center">
             <span class="accent-green mr-2">02.</span> My Projects
         </h3>
         
         <div class="grid md:grid-cols-2 gap-6">
-            <!-- Project Card 1 Placeholder -->
             <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all">
                 <i class="fa-solid fa-leaf text-3xl accent-green mb-6"></i>
-                <h4 class="text-xl font-bold mb-2 text-white">Project Title Placeholder</h4>
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Brief description of your computational Ag-Tech project and methodology [cite: 2].</p>
+                <h4 class="text-xl font-bold mb-2 text-white">Crop Disease Identification</h4>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Developing an image-based machine learning model to identify 17 different types of crop diseases.</p>
             </div>
 
-            <!-- Project Card 2 Placeholder -->
             <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all">
                 <i class="fa-solid fa-satellite text-3xl accent-green mb-6"></i>
-                <h4 class="text-xl font-bold mb-2 text-white">Project Title Placeholder</h4>
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Brief description of your computational Ag-Tech project and methodology [cite: 2].</p>
+                <h4 class="text-xl font-bold mb-2 text-white">AI in Sustainable Agriculture</h4>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Focusing on AI/ML to optimize crop management and solve agricultural bottlenecks through automated data analysis.</p>
             </div>
         </div>
     </section>
+
     <footer class="max-w-5xl mx-auto py-12 border-t border-slate-900 text-center text-slate-500 text-xs">
         <p>© 2026 Bidisha Dash | Built for Master's Admissions</p>
     </footer>
+
 <script>
     const nameElement = document.getElementById('typewriter-name');
     const nameText = "BIDISHA DASH";
@@ -209,11 +200,9 @@
         if (index < nameText.length) {
             nameElement.innerHTML += nameText.charAt(index);
             index++;
-            setTimeout(typeName, 150); // Speed of typing (150ms per letter)
+            setTimeout(typeName, 150); 
         }
     }
-
-    // Start typing when the page loads
     window.onload = typeName;
 </script>
 </body>
