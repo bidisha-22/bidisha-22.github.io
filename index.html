@@ -45,47 +45,52 @@
         .glass-icon:hover i { opacity: 0; }
         .glass-icon:hover .custom-ag-icon { opacity: 1; transform: scale(1) rotate(0deg); }
         
-        /* Compact View Projects Button Styling */
-        .btn-projects {
+        /* ========================================= */
+        /* COMPACT PILOT BUTTONS (SHARED STYLING)   */
+        /* ========================================= */
+        .btn-pilot {
             width: auto !important;
             height: auto !important;
-            padding: 12px 32px !important;
+            padding: 12px 28px !important; /* Slightly reduced padding to fit two */
             border-radius: 9999px !important;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .view-projects-icon {
+        /* Hover icon logic (Hidden by default) */
+        .hover-icon {
             position: absolute;
-            left: 15px;
+            left: 12px;
             top: 50%;
             transform: translateY(-50%) scale(0.5);
             width: 22px;
             height: 22px;
-            opacity: 0; /* Hidden by default */
+            opacity: 0; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
-        .btn-projects span {
+        /* Text logic (Centered by default) */
+        .btn-pilot span {
             transition: all 0.3s ease;
             margin-left: 0;
             display: inline-block;
         }
 
-        /* Hover logic: Only show icon and shift text on cursor hover */
-        .btn-projects:hover .view-projects-icon {
+        /* Hover interaction: Only show icon and shift text on hover */
+        .btn-pilot:hover .hover-icon {
             opacity: 1;
             transform: translateY(-50%) scale(1);
         }
 
-        .btn-projects:hover span {
-            margin-left: 28px;
+        .btn-pilot:hover span {
+            margin-left: 28px; /* Room for the 22px icon + small gap */
         }
 
-        .btn-projects:hover {
+        .btn-pilot:hover {
             border-color: rgba(74, 222, 128, 0.6);
             box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
             transform: translateY(-2px);
@@ -98,6 +103,7 @@
         <div class="space-x-6 text-sm font-medium hidden md:block text-slate-400">
             <a href="#about" class="hover:text-green-400">About</a>
             <a href="#research" class="hover:text-green-400">Research</a>
+            <a href="#my-projects" class="hover:text-green-400">Projects</a>
         </div>
     </nav>
 
@@ -118,11 +124,20 @@
         </div>
     </header>
 
-    <!-- Compact View Projects Button -->
-    <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center">
-        <a href="#my-projects" class="glass-icon btn-projects group hover:border-green-400">
-            <img src="icons8-agriculture-64.png" alt="Crop Icon" class="view-projects-icon">
-            <span class="accent-green font-bold">View Projects</span>
+    <!-- Pilot Buttons Container (Gap added for separation) -->
+    <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center gap-4 flex-wrap">
+        
+        <!-- BUTTON 1 (Left): Educational Journey (New) -->
+        <a href="#about" class="glass-icon btn-pilot group hover:border-green-400">
+            <!-- Ensure this file is named icon-farmer.png in your repo -->
+            <img src="icons8-agriculture-85 (1).png" alt="Farmer Icon" class="hover-icon">
+            <span class="accent-green font-bold text-sm tracking-tight">Educational Journey</span>
+        </a>
+
+        <!-- BUTTON 2 (Right): View Projects (Updated styling) -->
+        <a href="#my-projects" class="glass-icon btn-pilot group hover:border-green-400">
+            <img src="icons8-agriculture-64.png" alt="Crop Icon" class="hover-icon">
+            <span class="accent-green font-bold text-sm tracking-tight">View Projects</span>
         </a>
     </div>
 
@@ -149,6 +164,7 @@
         </a>
     </div>
 
+    <!-- Section 01: The Journey -->
     <section id="about" class="max-w-5xl mx-auto mb-24 px-6">
         <h3 class="text-2xl font-bold mb-8 flex items-center"><span class="accent-green mr-2">01.</span> The Journey</h3>
         <div class="space-y-12 border-l-2 border-slate-800 ml-4 pl-8">
@@ -167,6 +183,7 @@
         </div>
     </section>
 
+    <!-- Section 02: My Projects -->
     <section id="my-projects" class="max-w-5xl mx-auto mb-24 px-6">
         <h3 class="text-2xl font-bold mb-8 flex items-center">
             <span class="accent-green mr-2">02.</span> My Projects
