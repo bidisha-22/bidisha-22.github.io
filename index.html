@@ -59,14 +59,35 @@
             border-color: rgba(74, 222, 128, 0.6);
             box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
         /* Specialized positioning for the new oval button icon */
+        /* Icon starts invisible and slightly shifted */
         .glass-icon img.view-projects-icon {
             position: absolute;
-            left: 20px; /* Positions it nicely inside the left edge */
+            left: 30px;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) scale(0.8);
             width: 28px;
             height: 28px;
-            opacity: 0.8; /* Slight default transparency */
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Icon becomes visible and slides into position on hover */
+        .glass-icon:hover img.view-projects-icon {
+            opacity: 1;
+            left: 20px;
+            transform: translateY(-50%) scale(1);
+        }
+
+        /* Moves the text to the right when the icon appears */
+        .glass-icon span {
+            transition: all 0.3s ease;
+            margin-left: 0;
+            display: inline-block;
+        }
+
+        .glass-icon:hover span {
+            margin-left: 35px;
         }
     </style>
 </head>
