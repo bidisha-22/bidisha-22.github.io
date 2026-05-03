@@ -59,35 +59,35 @@
             border-color: rgba(74, 222, 128, 0.6);
             box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
         /* Specialized positioning for the new oval button icon */
-        /* Icon starts invisible and slightly shifted */
+       /* 1. Icon: Hidden, smaller, and tucked left by default */
         .glass-icon img.view-projects-icon {
             position: absolute;
-            left: 30px;
+            left: 15px;
             top: 50%;
-            transform: translateY(-50%) scale(0.8);
-            width: 28px;
-            height: 28px;
+            transform: translateY(-50%) scale(0.5);
+            width: 20px;
+            height: 20px;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
-        /* Icon becomes visible and slides into position on hover */
+        /* 2. Icon: Fades in and scales up to full size on hover */
         .glass-icon:hover img.view-projects-icon {
             opacity: 1;
-            left: 20px;
             transform: translateY(-50%) scale(1);
         }
 
-        /* Moves the text to the right when the icon appears */
+        /* 3. Text: Centered by default */
         .glass-icon span {
             transition: all 0.3s ease;
             margin-left: 0;
             display: inline-block;
         }
 
+        /* 4. Text: Shifts right to make room for the icon on hover */
         .glass-icon:hover span {
-            margin-left: 35px;
+            margin-left: 25px;
         }
     </style>
 </head>
@@ -124,7 +124,13 @@
             <!-- This is the icon you provided, renamed to icon-crop.png -->
             <img src="icons8-agriculture-64.png" alt="Crop Icon" class="view-projects-icon">
             <span class="accent-green font-bold ml-6">View Projects</span>
+        <!-- Compact version of the View Projects button -->
+    <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center">
+        <a href="#my-projects" class="glass-icon group px-8 py-3 h-auto w-auto rounded-full text-sm tracking-wide hover:border-green-400 flex items-center relative">
+            <img src="icon-crop.png" alt="Crop Icon" class="view-projects-icon">
+            <span class="accent-green font-bold transition-all duration-300">View Projects</span>
         </a>
+    </div>
     </div>
   <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
         
