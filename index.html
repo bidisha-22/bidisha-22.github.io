@@ -188,19 +188,21 @@
         </div>
     </section>
 
-    <!-- UPDATED CONTACT SECTION -->
+    <!-- SECTION 03: CONTACT & TRANSMISSION -->
     <section id="contact" class="max-w-5xl mx-auto mb-24 px-6">
         <div class="mb-10">
             <h3 class="text-3xl font-bold accent-white mb-2">Let's Connect</h3>
             <p class="text-slate-400">Always feel free to contact me</p>
         </div>
 
+        <!-- Contact Cards Grid -->
         <div class="grid gap-4 max-w-2xl">
             <!-- Name Card -->
             <div class="contact-card group">
                 <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
                     <i class="fa-solid fa-user text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-resume-50.png" alt="Soil" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100 invert brightness-200">
+                    <!-- Removed invert so the soil icon stays colorful -->
+                    <img src="icons8-soil-100.png" alt="Name" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Name</p>
@@ -212,7 +214,7 @@
             <div class="contact-card group">
                 <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
                     <i class="fa-solid fa-phone text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-agriculture-64 (1).png" alt="Agri" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100 rotate-[-10deg] group-hover:rotate-0">
+                    <img src="icons8-agriculture-64 (1).png" alt="Phone" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Phone</p>
@@ -224,7 +226,7 @@
             <div class="contact-card group">
                 <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
                     <i class="fa-solid fa-envelope text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-agriculture-85.png" alt="Pest" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100 rotate-[-10deg] group-hover:rotate-0">
+                    <img src="icons8-agriculture-85.png" alt="Email" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Email</p>
@@ -236,7 +238,7 @@
             <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="contact-card group">
                 <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
                     <i class="fa-brands fa-linkedin-in text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-planting-78.png" alt="Growth" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100 rotate-[-10deg] group-hover:rotate-0">
+                    <img src="icons8-planting-78.png" alt="LinkedIn" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">LinkedIn</p>
@@ -248,8 +250,7 @@
             <a href="https://bidisha-22.github.io" target="_blank" class="contact-card group">
                 <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
                     <i class="fa-brands fa-github text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <!-- Reusing Resume/Soil style for GitHub for consistency -->
-                    <img src="icons8-soil-100.png" alt="GitHub" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100 rotate-[-10deg] group-hover:rotate-0">
+                    <img src="icons8-resume-50.png" alt="GitHub" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">GitHub</p>
@@ -257,8 +258,37 @@
                 </div>
             </a>
         </div>
-    </section>
 
+        <!-- Secure Transmission Channel Form -->
+        <div class="mt-16 max-w-2xl relative">
+            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-4 bg-green-400 rounded-full blur-sm opacity-50 animate-pulse"></div>
+            
+            <div class="p-8 rounded-2xl border border-green-500/20 bg-slate-900/40 backdrop-blur-md">
+                <div class="mb-8">
+                    <h3 class="text-green-400 font-mono text-sm tracking-[0.3em] uppercase">Secure Transmission Channel</h3>
+                    <div class="h-[1px] w-12 bg-green-500 mt-2"></div>
+                </div>
+
+                <form action="#" class="space-y-6">
+                    <div>
+                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Your Name</label>
+                        <input type="text" placeholder="Enter your name..." class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Email Address</label>
+                        <input type="email" placeholder="your@email.com" class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Message</label>
+                        <textarea rows="4" placeholder="Transmit your message..." class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-green-500/10 border border-green-500/40 text-green-400 font-mono text-xs uppercase tracking-[0.2em] rounded-lg hover:bg-green-500 hover:text-slate-950 transition-all duration-300">
+                        Initiate Transmission
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
     <footer class="max-w-5xl mx-auto py-8 border-t border-slate-900 text-center text-slate-500 text-xs">
         <p>© 2026 Bidisha Dash | Built for Master's Admissions</p>
     </footer>
