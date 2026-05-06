@@ -45,13 +45,11 @@
         .glass-icon:hover i { opacity: 0; }
         .glass-icon:hover .custom-ag-icon { opacity: 1; transform: scale(1) rotate(0deg); }
         
-        /* ========================================= */
-        /* COMPACT PILOT BUTTONS (SHARED STYLING)   */
-        /* ========================================= */
+        /* COMPACT PILOT BUTTONS */
         .btn-pilot {
             width: auto !important;
             height: auto !important;
-            padding: 12px 28px !important; /* Slightly reduced padding to fit two */
+            padding: 12px 24px !important;
             border-radius: 9999px !important;
             display: flex;
             align-items: center;
@@ -60,40 +58,47 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover icon logic (Hidden by default) */
         .hover-icon {
             position: absolute;
             left: 12px;
             top: 50%;
             transform: translateY(-50%) scale(0.5);
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             opacity: 0; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
-        /* Text logic (Centered by default) */
         .btn-pilot span {
             transition: all 0.3s ease;
             margin-left: 0;
             display: inline-block;
         }
 
-        /* Hover interaction: Only show icon and shift text on hover */
-        .btn-pilot:hover .hover-icon {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
-        }
-
-        .btn-pilot:hover span {
-            margin-left: 28px; /* Room for the 22px icon + small gap */
-        }
+        .btn-pilot:hover .hover-icon { opacity: 1; transform: translateY(-50%) scale(1); }
+        .btn-pilot:hover span { margin-left: 24px; }
 
         .btn-pilot:hover {
             border-color: rgba(74, 222, 128, 0.6);
             box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
             transform: translateY(-2px);
+        }
+
+        /* Elongated Contact Cards */
+        .contact-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            border-color: rgba(74, 222, 128, 0.4);
+            background: rgba(30, 41, 59, 0.8);
         }
     </style>
 </head>
@@ -124,44 +129,22 @@
         </div>
     </header>
 
-    <!-- Pilot Buttons Container (Gap added for separation) -->
+    <!-- Pilot Buttons Container -->
     <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center gap-4 flex-wrap">
-        
-        <!-- BUTTON 1 (Left): Educational Journey (New) -->
         <a href="#about" class="glass-icon btn-pilot group hover:border-green-400">
-            <!-- Ensure this file is named icon-farmer.png in your repo -->
             <img src="icons8-agriculture-85 (1).png" alt="Farmer Icon" class="hover-icon">
             <span class="accent-green font-bold text-sm tracking-tight">Educational Journey</span>
         </a>
 
-        <!-- BUTTON 2 (Right): View Projects (Updated styling) -->
         <a href="#my-projects" class="glass-icon btn-pilot group hover:border-green-400">
             <img src="icons8-agriculture-64.png" alt="Crop Icon" class="hover-icon">
             <span class="accent-green font-bold text-sm tracking-tight">View Projects</span>
         </a>
-    </div>
 
-    <!-- Social Icons -->
-    <div class="max-w-5xl mx-auto mb-24 px-6 flex justify-center gap-6 flex-wrap">
-        <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group" title="GitHub">
-            <i class="fa-brands fa-github text-3xl text-slate-400 transition-all"></i>
-            <img src="icons8-agriculture-64 (1).png" alt="Mobile Tech" class="custom-ag-icon">
-        </a>
-
-        <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="glass-icon group" title="LinkedIn">
-            <i class="fa-brands fa-linkedin text-3xl text-slate-400 transition-all"></i>
-            <img src="icons8-planting-78.png" alt="Growth" class="custom-ag-icon">
-        </a>
-
-        <a href="mailto:bidisha.dash28@gmail.com" class="glass-icon group" title="Email">
-            <i class="fa-solid fa-envelope text-3xl text-slate-400 transition-all"></i>
-            <img src="icons8-agriculture-85.png" alt="Pest Management" class="custom-ag-icon">
-        </a>
-
-        <!-- Updated CV Icon with Brightness Filter -->
-        <a href="#" target="_blank" class="glass-icon group" title="CV">
-            <img src="icons8-resume-50.png" alt="CV Icon" class="w-8 h-8 opacity-60 group-hover:opacity-0 transition-all duration-300 invert brightness-200">
-            <img src="icons8-soil-100.png" alt="Soil Research" class="custom-ag-icon">
+        <!-- New Contact Button -->
+        <a href="#contact" class="glass-icon btn-pilot group hover:border-green-400">
+            <i class="fa-solid fa-envelope hover-icon text-green-400"></i>
+            <span class="accent-green font-bold text-sm tracking-tight">Contact</span>
         </a>
     </div>
 
@@ -200,12 +183,81 @@
             <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all">
                 <i class="fa-solid fa-satellite text-3xl accent-green mb-6"></i>
                 <h4 class="text-xl font-bold mb-2 text-white">AI in Sustainable Agriculture</h4>
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Focusing on AI/ML to optimize crop management and solve agricultural bottlenecks through automated data analysis.</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Focusing on AI/ML to optimize crop management and solve agricultural bottlenecks.</p>
             </div>
         </div>
     </section>
 
-    <footer class="max-w-5xl mx-auto py-12 border-t border-slate-900 text-center text-slate-500 text-xs">
+    <!-- NEW CONTACT SECTION -->
+    <section id="contact" class="max-w-5xl mx-auto mb-24 px-6">
+        <div class="mb-10">
+            <h3 class="text-3xl font-bold accent-green mb-2">Lets Contact</h3>
+            <p class="text-slate-400">Always feel free to contact me</p>
+        </div>
+
+        <div class="grid gap-4 max-w-2xl">
+            <!-- Name -->
+            <div class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg"><i class="fa-solid fa-user text-green-400"></i></div>
+                <div>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Name</p>
+                    <p class="text-white font-medium">Bidisha Dash</p>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg"><i class="fa-solid fa-phone text-green-400"></i></div>
+                <div>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Phone</p>
+                    <p class="text-white font-medium">+91-7439648770</p>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg"><i class="fa-solid fa-envelope text-green-400"></i></div>
+                <div>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Email</p>
+                    <p class="text-white font-medium">bidisha.dash28@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg"><i class="fa-brands fa-linkedin-in text-green-400"></i></div>
+                <div>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">LinkedIn</p>
+                    <p class="text-white font-medium">bidisha-dash-684aab2b0</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Social Icons (Bottom) -->
+    <div class="max-w-5xl mx-auto mb-12 px-6 flex justify-center gap-6 flex-wrap">
+        <a href="https://github.com/bidisha-22" target="_blank" class="glass-icon group" title="GitHub">
+            <i class="fa-brands fa-github text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-agriculture-64 (1).png" alt="Agri" class="custom-ag-icon">
+        </a>
+
+        <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="glass-icon group" title="LinkedIn">
+            <i class="fa-brands fa-linkedin text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-planting-78.png" alt="Growth" class="custom-ag-icon">
+        </a>
+
+        <a href="mailto:bidisha.dash28@gmail.com" class="glass-icon group" title="Email">
+            <i class="fa-solid fa-envelope text-3xl text-slate-400 transition-all"></i>
+            <img src="icons8-agriculture-85.png" alt="Pest" class="custom-ag-icon">
+        </a>
+        
+        <a href="#" target="_blank" class="glass-icon group" title="CV">
+            <img src="icons8-resume-50.png" alt="CV" class="w-8 h-8 opacity-60 group-hover:opacity-0 transition-all invert brightness-200">
+            <img src="icons8-soil-100.png" alt="Soil" class="custom-ag-icon">
+        </a>
+    </div>
+
+    <footer class="max-w-5xl mx-auto py-8 border-t border-slate-900 text-center text-slate-500 text-xs">
         <p>© 2026 Bidisha Dash | Built for Master's Admissions</p>
     </footer>
 
