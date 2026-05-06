@@ -11,14 +11,6 @@
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .accent-green { color: #4ade80; }
         
-        /* Standard Social Icon Styling */
-        .glass-icon {
-            display: flex; align-items: center; justify-content: center;
-            width: 70px; height: 70px; border-radius: 50%; position: relative;
-            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-
         /* Typewriter Cursor */
         #typewriter-name::after {
             content: '|';
@@ -32,29 +24,15 @@
             50% { opacity: 0; }
         }
 
-        /* Agri-icon overlay for Social Icons */
-        .custom-ag-icon {
-            position: absolute;
-            width: 40px; height: 40px; object-fit: contain;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: scale(0.5) rotate(-10deg);
-            pointer-events: none;
-        }
-
-        .glass-icon:hover i { opacity: 0; }
-        .glass-icon:hover .custom-ag-icon { opacity: 1; transform: scale(1) rotate(0deg); }
-        
-        /* COMPACT PILOT BUTTONS */
+        /* PILOT BUTTONS */
         .btn-pilot {
-            width: auto !important;
-            height: auto !important;
-            padding: 12px 24px !important;
-            border-radius: 9999px !important;
+            padding: 12px 24px;
+            border-radius: 9999px;
             display: flex;
             align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             position: relative;
-            overflow: hidden;
             transition: all 0.3s ease;
         }
 
@@ -67,25 +45,17 @@
             height: 20px;
             opacity: 0; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
         }
 
         .btn-pilot span {
             transition: all 0.3s ease;
-            margin-left: 0;
-            display: inline-block;
         }
 
         .btn-pilot:hover .hover-icon { opacity: 1; transform: translateY(-50%) scale(1); }
         .btn-pilot:hover span { margin-left: 24px; }
+        .btn-pilot:hover { border-color: #4ade80; background: rgba(74, 222, 128, 0.1); }
 
-        .btn-pilot:hover {
-            border-color: rgba(74, 222, 128, 0.6);
-            box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Elongated Contact Cards */
+        /* Contact Cards */
         .contact-card {
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -96,10 +66,7 @@
             gap: 20px;
             transition: all 0.3s ease;
         }
-        .contact-card:hover {
-            border-color: rgba(74, 222, 128, 0.4);
-            background: rgba(30, 41, 59, 0.8);
-        }
+        .contact-card:hover { border-color: #4ade80; background: rgba(30, 41, 59, 0.8); }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -119,7 +86,8 @@
             <img src="profile.jpeg" alt="Bidisha Dash" class="relative w-40 h-40 md:w-52 md:h-52 rounded-full border-8 border-slate-800 object-cover shadow-2xl mx-auto">
         </div>
 
-        <h1 class="text-6xl md:text-7xl font-black text-white tracking-tighter mb-8 min-h-[1em]" id="typewriter-name"></h1>
+        <!-- The ID for the Typewriter Effect -->
+        <h1 class="text-6xl md:text-7xl font-black text-white tracking-tighter mb-8 min-h-[1.2em]" id="typewriter-name"></h1>
 
         <div class="max-w-3xl mx-auto space-y-6">
             <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
@@ -143,39 +111,39 @@
         <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-4">
                 <h3 class="text-green-400 font-mono text-sm tracking-widest uppercase">Academic Foundation</h3>
-                <p class="text-slate-400 leading-relaxed">
-                    My academic foundation spans <span class="text-slate-200">Agronomy, Horticulture, Soil Science, Plant Pathology, Entomology, Plant Breeding, Agricultural Engineering,</span> and <span class="text-slate-200">Agricultural Extension</span> — giving me the depth to understand these problems from the ground up. I am aspiring a <span class="text-white">Master's degree</span> to build the specialized research expertise needed to contribute at an institutional scale.
+                <p class="text-slate-400 leading-relaxed text-sm">
+                    My academic foundation spans <span class="text-slate-200">Agronomy, Horticulture, Soil Science, Plant Pathology, Entomology, Plant Breeding, Agricultural Engineering,</span> and <span class="text-slate-200">Agricultural Extension</span>—giving me the depth to understand these problems from the ground up. I am aspiring a <span class="text-white">Master's degree</span> to build the specialized research expertise needed to contribute at an institutional scale.
                 </p>
             </div>
             
             <div class="space-y-4">
                 <h3 class="text-green-400 font-mono text-sm tracking-widest uppercase">The Tech Amplifier</h3>
-                <p class="text-slate-400 leading-relaxed">
-                    What I have come to understand is that <span class="text-white italic">technology will actually amplify it.</span> By upskilling in technological skills, I am building the capacity to model and design the intelligent integrated management systems — extending the reach of good agricultural practice far beyond what traditional methods alone could achieve.
+                <p class="text-slate-400 leading-relaxed text-sm">
+                    What I have come to understand is that <span class="text-white italic">technology will actually amplify it.</span> By upskilling in technological skills, I am building the capacity to model and design the intelligent integrated management systems—extending the reach of good agricultural practice far beyond what traditional methods alone could achieve.
                 </p>
             </div>
         </div>
 
         <div class="pt-8 border-t border-slate-800 text-center">
-            <p class="text-slate-400 italic">
+            <p class="text-slate-400 italic text-sm">
                 Every project in this portfolio is a step toward that goal—rooted in science, powered by data, and oriented toward a food-secure and ecologically resilient world.
             </p>
         </div>
     </section>
 
-    <!-- Pilot Buttons Container -->
+    <!-- Pilot Navigation Buttons -->
     <div class="max-w-5xl mx-auto mb-20 px-6 flex justify-center gap-4 flex-wrap">
-        <a href="#about" class="glass-icon btn-pilot group hover:border-green-400">
+        <a href="#about" class="btn-pilot group">
             <img src="icons8-agriculture-85 (1).png" alt="Farmer Icon" class="hover-icon">
             <span class="accent-green font-bold text-sm tracking-tight">The Journey</span>
         </a>
 
-        <a href="#my-projects" class="glass-icon btn-pilot group hover:border-green-400">
+        <a href="#my-projects" class="btn-pilot group">
             <img src="icons8-agriculture-64.png" alt="Crop Icon" class="hover-icon">
             <span class="accent-green font-bold text-sm tracking-tight">Projects</span>
         </a>
 
-        <a href="#contact" class="glass-icon btn-pilot group hover:border-green-400">
+        <a href="#contact" class="btn-pilot group">
             <img src="icons8-contact-64.png" alt="Contact Icon" class="hover-icon">
             <span class="accent-green font-bold text-sm tracking-tight">Contact</span>
         </a>
@@ -189,13 +157,13 @@
                 <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
                 <h4 class="font-bold text-xl text-white">BSc Agriculture Graduate</h4>
                 <p class="text-sm text-green-400 mb-2">2021 — 2025 | India</p>
-                <p class="text-slate-400 max-w-2xl">Completed intensive coursework in Soil Science, Genetics, and Plant Breeding. Specialized in field phenotyping and laboratory analysis.</p>
+                <p class="text-slate-400 max-w-2xl text-sm">Completed intensive coursework in Soil Science and Integrated Management. Focused on field research and data-driven sustainability.</p>
             </div>
             <div class="relative">
                 <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700"></div>
                 <h4 class="font-bold text-xl text-white">Ag-Tech Research & AI Focus</h4>
                 <p class="text-sm text-green-400 mb-2">2024 — Present</p>
-                <p class="text-slate-400 max-w-2xl">Transitioned into computational agriculture. Developing ML models for crop disease detection and authoring review papers on Ag-Innovation.</p>
+                <p class="text-slate-400 max-w-2xl text-sm">Developing ML models for crop disease detection and utilizing Python and R for agricultural data analysis.</p>
             </div>
         </div>
     </section>
@@ -210,51 +178,28 @@
             <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all">
                 <i class="fa-solid fa-leaf text-3xl accent-green mb-6"></i>
                 <h4 class="text-xl font-bold mb-2 text-white">Crop Disease Identification</h4>
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Developing an image-based machine learning model to identify 17 different types of crop diseases.</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Training an image recognition model using Kaggle datasets to identify 17 crop diseases.</p>
             </div>
 
             <div class="glass p-8 rounded-3xl hover:border-green-400/30 transition-all">
-                <i class="fa-solid fa-satellite text-3xl accent-green mb-6"></i>
-                <h4 class="text-xl font-bold mb-2 text-white">AI in Sustainable Agriculture</h4>
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Focusing on AI/ML to optimize crop management and solve agricultural bottlenecks.</p>
+                <i class="fa-solid fa-chart-line text-3xl accent-green mb-6"></i>
+                <h4 class="text-xl font-bold mb-2 text-white">Crop Yield Analytics Dashboard</h4>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Utilizing R and statistical modeling to visualize and analyze agricultural yield records.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 03: CONTACT & TRANSMISSION -->
+    <!-- SECTION 03: CONTACT -->
     <section id="contact" class="max-w-5xl mx-auto mb-24 px-6">
         <div class="mb-10">
-            <h3 class="text-3xl font-bold accent-white mb-2">Let's Connect</h3>
-            <p class="text-slate-400">Always feel free to contact me</p>
+            <h3 class="text-3xl font-bold text-white mb-2">Let's Connect</h3>
+            <p class="text-slate-400">I am open to research collaborations and academic discussions.</p>
         </div>
 
         <div class="grid gap-4 max-w-2xl">
-            <div class="contact-card group">
-                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
-                    <i class="fa-solid fa-user text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-resume-50.png" alt="Profile" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Name</p>
-                    <p class="text-white font-medium">Bidisha Dash</p>
-                </div>
-            </div>
-
-            <div class="contact-card group">
-                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
-                    <i class="fa-solid fa-phone text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-agriculture-64 (1).png" alt="Phone" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Phone</p>
-                    <p class="text-white font-medium">+91-7439648770</p>
-                </div>
-            </div>
-
-            <div class="contact-card group">
-                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
-                    <i class="fa-solid fa-envelope text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-agriculture-85.png" alt="Email" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
+            <div class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                    <i class="fa-solid fa-envelope text-green-400"></i>
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Email</p>
@@ -262,77 +207,44 @@
                 </div>
             </div>
 
-            <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="contact-card group">
-                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
-                    <i class="fa-brands fa-linkedin-in text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-planting-78.png" alt="LinkedIn" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
+            <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="contact-card">
+                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                    <i class="fa-brands fa-linkedin-in text-green-400"></i>
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">LinkedIn</p>
-                    <p class="text-white font-medium">bidisha-dash-684aab2b0</p>
+                    <p class="text-white font-medium">bidisha-dash</p>
                 </div>
             </a>
-
-            <a href="https://bidisha-22.github.io" target="_blank" class="contact-card group">
-                <div class="bg-slate-800 p-3 rounded-lg w-12 h-12 flex items-center justify-center relative overflow-hidden">
-                    <i class="fa-brands fa-github text-green-400 transition-all duration-300 group-hover:opacity-0 group-hover:scale-50"></i>
-                    <img src="icons8-soil-100.png" alt="Github" class="absolute inset-0 w-full h-full p-2 opacity-0 scale-50 transition-all duration-400 group-hover:opacity-100 group-hover:scale-100">
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">GitHub</p>
-                    <p class="text-white font-medium">bidisha-22.github.io</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Secure Transmission Channel Form -->
-        <div class="mt-16 max-w-2xl relative">
-            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-4 bg-green-400 rounded-full blur-sm opacity-50 animate-pulse"></div>
-            
-            <div class="p-8 rounded-2xl border border-green-500/20 bg-slate-900/40 backdrop-blur-md">
-                <div class="mb-8">
-                    <h3 class="text-green-400 font-mono text-sm tracking-[0.3em] uppercase">Secure Transmission Channel</h3>
-                    <div class="h-[1px] w-12 bg-green-500 mt-2"></div>
-                </div>
-
-                <form action="#" class="space-y-6">
-                    <div>
-                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Your Name</label>
-                        <input type="text" placeholder="Enter your name..." class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Email Address</label>
-                        <input type="email" placeholder="your@email.com" class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-slate-500 font-mono text-[10px] uppercase tracking-widest mb-2">Message</label>
-                        <textarea rows="4" placeholder="Transmit your message..." class="w-full bg-slate-950/30 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder:text-slate-700 focus:border-green-500/50 outline-none transition-all resize-none"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-green-500/10 border border-green-500/40 text-green-400 font-mono text-xs uppercase tracking-[0.2em] rounded-lg hover:bg-green-500 hover:text-slate-950 transition-all duration-300">
-                        Initiate Transmission
-                    </button>
-                </form>
-            </div>
         </div>
     </section>
 
     <footer class="max-w-5xl mx-auto py-8 border-t border-slate-900 text-center text-slate-500 text-xs">
         <p>© 2026 Bidisha Dash | Built for Master's Admissions</p>
-    </footer
+    </footer>
 
-<script>
-    const nameElement = document.getElementById('typewriter-name');
-    const nameText = "BIDISHA DASH";
-    let index = 0;
+    <script>
+        // Use DOMContentLoaded to ensure the element exists before script runs
+        document.addEventListener('DOMContentLoaded', () => {
+            const nameElement = document.getElementById('typewriter-name');
+            const nameText = "BIDISHA DASH";
+            let index = 0;
 
-    function typeName() {
-        if (index < nameText.length) {
-            nameElement.innerHTML += nameText.charAt(index);
-            index++;
-            setTimeout(typeName, 150); 
-        }
-    }
-    window.onload = typeName;
-</script>
+            // Typewriter effect logic
+            function typeName() {
+                if (index < nameText.length) {
+                    nameElement.innerHTML += nameText.charAt(index);
+                    index++;
+                    setTimeout(typeName, 150); 
+                }
+            }
+
+            // Safety clear
+            if (nameElement) {
+                nameElement.innerHTML = "";
+                typeName();
+            }
+        });
+    </script>
 </body>
 </html>
