@@ -157,18 +157,19 @@
             <section id="home" class="min-h-screen flex flex-col justify-center py-20">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
                     <div class="flex-1 text-center lg:text-left">
-                        <h1 class="text-7xl font-bold mb-6 leading-tight min-h-[1.2em] text-[#6D8B5A]">
+                <h1 class="text-7xl font-bold mb-2 leading-tight min-h-[1.2em] text-[#6D8B5A]">
                     <span id="typing-effect"></span>
-                    </h1>
-                  
-                        <p class="text-xl text-[#6B6B6B] font-medium leading-relaxed mb-12 max-w-lg min-h-[3em]">
-                        <span id="typewriter-mission"></span>
-                        </p>
-                        <div class="flex gap-5 justify-center lg:justify-start">
-                            <button class="btn-green">View My Work</button>
-                            <button class="btn-white">Download CV</button>
-                        </div>
-                    </div>
+                </h1>
+                
+                <h4 class="text-2xl md:text-3xl text-[#6B6B6B] font-medium leading-tight mb-12 max-w-lg min-h-[1.5em] -mt-4">
+                    <span id="typewriter-mission"></span>
+                </h4>
+            
+                <div class="flex gap-5 justify-center lg:justify-start">
+                    <button class="btn-green">View My Work</button>
+                    <button class="btn-white">Download CV</button>
+                </div>
+            </div>
 
                     <div class="profile-container">
                         <svg class="leaf-frame-svg" viewBox="0 0 200 200">
@@ -504,23 +505,21 @@
     }
   });
 </script>
-<script>
-  var typedMission = new Typed('#typewriter-mission', {
-    // These are the strings that will be typed, wiped, and re-typed in order
+var typedMission = new Typed('#typewriter-mission', {
     strings: [
       'Aspiring sustainable agriculture researcher', 
       'Agricultural data science enthusiast', 
       'Integrated disease management advocate',
-      'Food security champion' // Add as many as you like!
+      'Food security champion'
     ],
-    typeSpeed: 80,   // How fast the characters appear
-    backSpeed: 60,   // How fast the text is wiped (erased)
-    backDelay: 2500, // How long it waits (2.5 seconds) before wiping
-    startDelay: 1000,// Initial delay before typing starts
-    loop: true,      // Set to true to make the whole sequence repeat indefinitely
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 2000,
+    startDelay: 1500, // Waits for your name to finish first
+    loop: true,
     showCursor: true,
-    cursorChar: '|'  // Use the default pipe symbol
-  });
+    cursorChar: '|'
+});
 </script>
 </body>
 </html>
