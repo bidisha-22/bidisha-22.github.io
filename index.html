@@ -11,10 +11,11 @@
     <style>
         :root {
             --bg-cream: #F8F7F2;
-            --sidebar-green: #EEF1E7;
+            --sidebar-deep-green: #12372A; /* Deep Forest Green */
             --primary-green: #6D8B5A;
             --text-dark: #1F1F1F;
             --border-color: #E2E5DA;
+            --nav-text-light: #EEF1E7;
         }
 
         body { 
@@ -28,32 +29,52 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Sidebar - Exact Color and Spacing */
+        /* Sidebar - Updated to Deep Forest Green */
         .sidebar {
-            width: 260px; background-color: var(--sidebar-green); 
-            position: fixed; height: 100vh; display: flex; flex-direction: column;
-            padding: 3rem 1.5rem; z-index: 50; border-right: 1px solid var(--border-color);
+            width: 260px; 
+            background-color: var(--sidebar-deep-green); 
+            position: fixed; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            padding: 3rem 1.5rem; 
+            z-index: 50; 
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-link {
-            display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-            border-radius: 12px; color: #6B6B6B; font-weight: 500; font-size: 0.95rem;
-            transition: all 0.3s ease; margin-bottom: 4px;
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            padding: 12px 16px;
+            border-radius: 12px; 
+            color: var(--nav-text-light); 
+            opacity: 0.7;
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: all 0.3s ease; 
+            margin-bottom: 4px;
         }
 
-        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.5); color: var(--primary-green); }
-        .nav-link.active { font-weight: 700; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-link:hover, .nav-link.active { 
+            background-color: rgba(255,255,255,0.1); 
+            color: white; 
+            opacity: 1;
+        }
+
+        .nav-link.active { 
+            font-weight: 700; 
+            background-color: rgba(255,255,255,0.15); 
+        }
 
         /* Main Content */
         .main-content { margin-left: 260px; position: relative; }
 
-        /* Botanical Decorations - SVG for no-break loading */
         .botanical-top { position: absolute; top: 0; right: 0; width: 400px; opacity: 0.15; pointer-events: none; z-index: 1; }
         .botanical-bottom { position: fixed; bottom: -20px; left: 240px; width: 300px; opacity: 0.1; pointer-events: none; z-index: 1; }
 
         .content-wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
 
-        /* Profile Area */
         .profile-container { position: relative; width: 380px; height: 380px; }
         .profile-img {
             width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
@@ -62,10 +83,9 @@
         }
         .leaf-frame-svg {
             position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
-            fill: var(--sidebar-green); z-index: 1; opacity: 0.7;
+            fill: #EEF1E7; z-index: 1; opacity: 0.7;
         }
 
-        /* Cards - 24px rounded corners per instructions */
         .card-modern {
             background: white; border: 1px solid var(--border-color); border-radius: 24px;
             padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
@@ -75,15 +95,13 @@
         .card-modern i { color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1rem; display: block; }
         .card-modern p { font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Stats Section */
         .stats-grid {
-            background-color: var(--sidebar-green); border-radius: 24px; padding: 2.5rem;
+            background-color: #EEF1E7; border-radius: 24px; padding: 2.5rem;
             display: grid; grid-template-cols: repeat(4, 1fr); margin-top: 4rem;
         }
         .stat-line { border-right: 1px solid #D8DCCF; text-align: center; }
         .stat-line:last-child { border-right: none; }
 
-        /* Buttons */
         .btn-green { background-color: var(--primary-green); color: white; padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
         .btn-white { background-color: white; border: 1px solid var(--border-color); color: var(--text-dark); padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
         .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
@@ -95,9 +113,9 @@
 
     <aside class="sidebar">
         <div class="mb-12 px-2">
-            <div class="text-green-700 text-3xl mb-6"><i class="fa-solid fa-leaf"></i></div>
-            <h2 class="text-2xl font-serif text-slate-900 leading-tight">Bidisha Dash</h2>
-            <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mt-2">Aspiring Ag-Tech Researcher</p>
+            <div class="text-white text-3xl mb-6"><i class="fa-solid fa-leaf"></i></div>
+            <h2 class="text-2xl font-serif text-white leading-tight">Bidisha Dash</h2>
+            <p class="text-[11px] font-semibold text-[#EEF1E7] opacity-60 uppercase tracking-widest mt-2">Aspiring Ag-Tech Researcher</p>
         </div>
 
         <nav class="flex-grow">
@@ -111,10 +129,10 @@
             <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </nav>
 
-        <div class="mt-auto flex gap-6 px-4 pt-8 border-t border-[#D8DCCF]">
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-brands fa-github text-lg"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-solid fa-envelope text-lg"></i></a>
+        <div class="mt-auto flex gap-6 px-4 pt-8 border-t border-white/10">
+            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-solid fa-envelope text-lg"></i></a>
         </div>
     </aside>
 
@@ -134,7 +152,6 @@
                         <p class="text-xl text-[#6B6B6B] font-medium leading-relaxed mb-12 max-w-lg">
                             Passionate about sustainable agriculture, data-driven solutions and rural development.
                         </p>
-                        
                         <div class="flex gap-5 justify-center lg:justify-start">
                             <button class="btn-green">View My Work</button>
                             <button class="btn-white">Download CV</button>
@@ -150,41 +167,17 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24">
-                    <div class="card-modern">
-                        <i class="fa-solid fa-leaf"></i>
-                        <p>Agriculture Student</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-database"></i>
-                        <p>Data Enthusiast</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <p>Lifelong Learner</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-brain"></i>
-                        <p>Problem Solver</p>
-                    </div>
+                    <div class="card-modern"><i class="fa-solid fa-leaf"></i><p>Agriculture Student</p></div>
+                    <div class="card-modern"><i class="fa-solid fa-database"></i><p>Data Enthusiast</p></div>
+                    <div class="card-modern"><i class="fa-solid fa-graduation-cap"></i><p>Lifelong Learner</p></div>
+                    <div class="card-modern"><i class="fa-solid fa-brain"></i><p>Problem Solver</p></div>
                 </div>
 
                 <div class="stats-grid">
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">3+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Projects</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">5+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Certifications</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">2+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Internships</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">1+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Research Work</p>
-                    </div>
+                    <div class="stat-line"><span class="text-4xl font-bold text-[#1F1F1F]">3+</span><p class="text-sm font-semibold text-[#6B6B6B] mt-1">Projects</p></div>
+                    <div class="stat-line"><span class="text-4xl font-bold text-[#1F1F1F]">5+</span><p class="text-sm font-semibold text-[#6B6B6B] mt-1">Certifications</p></div>
+                    <div class="stat-line"><span class="text-4xl font-bold text-[#1F1F1F]">2+</span><p class="text-sm font-semibold text-[#6B6B6B] mt-1">Internships</p></div>
+                    <div class="stat-line"><span class="text-4xl font-bold text-[#1F1F1F]">1+</span><p class="text-sm font-semibold text-[#6B6B6B] mt-1">Research Work</p></div>
                 </div>
             </section>
         </div>
@@ -195,6 +188,5 @@
             </svg>
         </div>
     </main>
-
 </body>
 </html>
