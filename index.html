@@ -6,1264 +6,169 @@
     <title>Bidisha Dash | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --sidebar-bg: #f7f8f4;
-            --sidebar-width: 220px;
-            --green-accent: #4a7c59;
-            --green-light: #6aab7e;
-            --green-dark: #2d5a3d;
-            --text-main: #1a1a1a;
-            --text-muted: #7a7a7a;
-            --bg-main: #fafaf7;
-            --card-bg: #ffffff;
-            --border-color: #ebebeb;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        body { 
+            background-color: #fcfdfa; 
+            color: #2d3436; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+            background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Subtle leaf texture */
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Floral Decorative Accents */
+        .floral-top { position: absolute; top: 0; right: 0; width: 300px; opacity: 0.1; z-index: -1; pointer-events: none; }
+        .floral-bottom { position: fixed; bottom: -50px; left: 240px; width: 350px; opacity: 0.1; z-index: -1; pointer-events: none; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* ── SIDEBAR ── */
+        /* Sidebar Styling */
         .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            position: fixed;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem 1rem;
-            z-index: 100;
-            overflow-y: auto;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 0.4rem;
-        }
-
-        .sidebar-logo .leaf-icon {
-            color: var(--green-accent);
-            font-size: 1.1rem;
-        }
-
-        .sidebar-name {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.2;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.62rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 1.8rem;
-            line-height: 1.4;
-        }
-
-        .nav-section-label {
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
-            padding-left: 0.5rem;
+            width: 280px; background-color: #052e16; color: white; /* Dark forest green sidebar */
+            position: fixed; height: 100vh; display: flex; flex-direction: column;
+            padding: 2.5rem 1.5rem; z-index: 50;
         }
 
         .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 10px;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.18s ease;
-            margin-bottom: 2px;
+            display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+            border-radius: 12px; color: #a1a1aa; font-weight: 500; transition: all 0.2s ease; margin-bottom: 4px;
         }
 
-        .nav-link i {
-            width: 16px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .nav-link:hover {
-            background-color: #eef4f0;
-            color: var(--green-accent);
-        }
-
-        .nav-link:hover i { color: var(--green-accent); }
-
-        .nav-link.active {
-            background-color: #e4ede8;
-            color: var(--green-dark);
-            font-weight: 600;
-        }
-
-        .nav-link.active i { color: var(--green-dark); }
-
-        .sidebar-social {
-            margin-top: auto;
-            display: flex;
-            gap: 12px;
-            padding-top: 1.2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .sidebar-social a {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .sidebar-social a:hover { color: var(--green-accent); }
-
-        /* ── MAIN CONTENT ── */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 2.5rem 3rem;
-            position: relative;
-            max-width: 1100px;
-        }
-
-        /* ── DECORATIVE LEAVES ── */
-        .leaf-decor {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.07;
-        }
-
-        .leaf-decor-tr {
-            top: -30px;
-            right: 0;
-            width: 280px;
-        }
-
-        .leaf-decor-bl {
-            bottom: -60px;
-            right: 80px;
-            width: 320px;
-            transform: rotate(180deg);
-        }
-
-        /* ── SECTION HEADING ── */
-        .section-heading {
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-heading .leaf-sm {
-            color: var(--green-accent);
-            font-size: 0.9rem;
-        }
-
-        .section-heading::after {
-            content: '';
-            display: block;
-            height: 2px;
-            width: 40px;
-            background: var(--green-accent);
-            border-radius: 2px;
-            margin-left: 4px;
-            margin-top: 4px;
-        }
-
-        /* ── CARD ── */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.8rem;
-            margin-bottom: 1.2rem;
-        }
-
-        /* ── HOME SECTION ── */
-        #home {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .hero-top {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-text { flex: 1; }
-
-        .hero-hello {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .hero-name {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.1;
-            margin-bottom: 0.4rem;
-        }
-
-        .hero-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--green-accent);
-            margin-bottom: 0.8rem;
-        }
-
-        .hero-desc {
-            font-size: 0.83rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 340px;
-            margin-bottom: 1.4rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: var(--green-dark);
-            color: white;
-            padding: 9px 20px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .btn-primary:hover { background: var(--green-accent); }
-
-        .btn-outline {
-            border: 1.5px solid var(--border-color);
-            color: var(--text-main);
-            padding: 9px 20px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s;
-            background: white;
-        }
-
-        .btn-outline:hover { border-color: var(--green-accent); color: var(--green-accent); }
-
-        /* Profile photo */
-        .hero-photo-wrap {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .hero-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 10px solid white;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-photo-bg {
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #d4eadb, #f0f7f2);
-            z-index: 1;
-        }
-
-        /* Leaf decoration near photo */
-        .hero-leaf-deco {
-            position: absolute;
-            top: -20px;
-            right: -30px;
-            width: 120px;
-            opacity: 0.18;
-            z-index: 0;
-        }
-
-        /* Trait boxes */
-        .trait-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .trait-box {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .trait-box:hover { border-color: var(--green-accent); transform: translateY(-3px); }
-
-        .trait-box i {
-            font-size: 1.2rem;
-            color: var(--green-accent);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .trait-box p {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-
-        .stat-box {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1rem 0.8rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        .stat-label {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        /* ── ABOUT SECTION ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text { font-size: 0.84rem; color: #555; line-height: 1.7; }
-
-        .about-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 1.2rem;
-        }
-
-        .about-info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.78rem;
-        }
-
-        .about-info-item i {
-            color: var(--green-accent);
-            width: 16px;
-        }
-
-        .about-info-item .info-label {
-            font-weight: 700;
-            display: block;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .about-info-item .info-value {
-            font-size: 0.78rem;
-            color: var(--text-main);
-        }
-
-        .about-photo {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        .drives-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        .drive-box {
-            text-align: center;
-            padding: 1rem 0.5rem;
-            background: #f8faf8;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-        }
-
-        .drive-box i {
-            color: var(--green-accent);
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .drive-box p {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* ── EDUCATION ── */
-        .edu-timeline { position: relative; }
-
-        .edu-item {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 1rem;
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.3rem 1.5rem;
-            align-items: flex-start;
-        }
-
-        .edu-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .edu-icon.hs { background: #e8f4e8; color: var(--green-accent); }
-        .edu-icon.bsc { background: var(--green-dark); color: white; }
-
-        .edu-date { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.2rem; }
-        .edu-degree { font-size: 0.95rem; font-weight: 800; color: var(--text-main); }
-        .edu-school { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem; }
-        .edu-grade {
-            display: inline-block;
-            background: #e8f4e8;
-            color: var(--green-dark);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-top: 2px;
-        }
-
-        .edu-subgrid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .edu-sub-item .label { font-size: 0.7rem; font-weight: 700; color: var(--text-main); }
-        .edu-sub-item .val { font-size: 0.65rem; color: var(--text-muted); }
-
-        /* Self Learning */
-        .self-learn-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-top: 1rem;
-        }
-
-        .self-learn-col h5 {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.6rem;
-        }
-
-        .self-learn-col ul {
-            list-style: none;
-        }
-
-        .self-learn-col ul li {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .self-learn-col ul li i {
-            color: var(--green-accent);
-            font-size: 0.6rem;
-        }
-
-        /* ── SKILLS ── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .skill-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-        }
-
-        .skill-name { font-size: 0.8rem; font-weight: 600; }
-
-        .skill-leaves {
-            display: flex;
-            gap: 3px;
-        }
-
-        .skill-leaf {
-            font-size: 0.75rem;
-        }
-
-        .skill-leaf.filled { color: var(--green-accent); }
-        .skill-leaf.empty { color: #d4d4d4; }
-
-        /* Professional skills boxes */
-        .pro-skill-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .pro-skill-box {
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 0.8rem;
-            text-align: center;
-        }
-
-        .pro-skill-box i {
-            color: var(--green-accent);
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-            display: block;
-        }
-
-        .pro-skill-box p { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); }
-
-        /* Tools */
-        .tools-grid {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 0.8rem;
-        }
-
-        .tool-chip {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 5px 10px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: white;
-        }
-
-        .tool-chip i { font-size: 0.85rem; }
-
-        /* ── PROJECTS ── */
-        .project-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            display: flex;
-            gap: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            transition: box-shadow 0.2s;
-        }
-
-        .project-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
-
-        .project-img {
-            width: 100px;
-            height: 80px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-            background: #e8f0ea;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--green-accent);
-            font-size: 1.5rem;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: #e8f4e8;
-            color: var(--green-dark);
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-bottom: 0.4rem;
-        }
-
-        .project-name { font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.3rem; }
-        .project-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.4rem; }
-        .project-tools { font-size: 0.68rem; color: var(--text-muted); }
-        .project-link { font-size: 0.72rem; font-weight: 700; color: var(--green-accent); text-decoration: none; float: right; }
-        .project-link:hover { text-decoration: underline; }
-
-        /* ── PUBLICATIONS ── */
-        .pub-item {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .pub-icon {
-            width: 38px;
-            height: 38px;
-            background: #e8f4e8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--green-accent);
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .pub-title { font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
-        .pub-journal { font-size: 0.72rem; color: var(--green-accent); font-weight: 600; margin-bottom: 0.15rem; }
-        .pub-desc { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.3rem; }
-        .pub-link { font-size: 0.72rem; font-weight: 700; color: var(--green-dark); text-decoration: none; }
-
-        /* ── CERTIFICATIONS ── */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .cert-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.2rem;
-            text-align: center;
-            transition: all 0.2s;
-        }
-
-        .cert-card:hover { border-color: var(--green-accent); }
-
-        .cert-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            margin: 0 auto 0.7rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .cert-name { font-size: 0.78rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
-        .cert-org { font-size: 0.68rem; color: var(--text-muted); }
-        .cert-year { font-size: 0.65rem; color: var(--green-accent); font-weight: 700; }
-
-        /* ── CONTACT ── */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.9rem;
-            font-size: 0.8rem;
-        }
-
-        .contact-info-item i {
-            width: 32px;
-            height: 32px;
-            background: #e8f4e8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--green-accent);
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.1); color: #4ade80; }
 
-        .form-field {
-            width: 100%;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.8rem;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.2s;
-            color: var(--text-main);
-            background: white;
-            margin-bottom: 10px;
-        }
-
-        .form-field:focus { border-color: var(--green-accent); }
-
-        textarea.form-field { resize: vertical; min-height: 80px; }
+        /* Main Content */
+        .main-content { margin-left: 280px; padding: 4rem; max-width: 1200px; position: relative; }
 
-        .btn-send {
-            background: var(--green-dark);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 9px 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: inherit;
-            transition: background 0.2s;
+        .section-card {
+            background: white; border-radius: 20px; padding: 2.5rem;
+            border: 1px solid #eef2f3; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 2rem;
         }
 
-        .btn-send:hover { background: var(--green-accent); }
-
-        /* ── FOOTER ── */
-        footer {
-            text-align: center;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            padding: 2rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 3rem;
+        /* Floating Icon Boxes (Agriculture Student, Data Enthusiast, etc) */
+        .icon-box {
+            text-align: center; padding: 1.5rem; background: white; border-radius: 15px;
+            border: 1px solid #f1f5f9; transition: transform 0.3s ease;
         }
+        .icon-box:hover { transform: translateY(-5px); border-color: #4ade80; }
+        .icon-box i { font-size: 1.5rem; color: #166534; margin-bottom: 0.75rem; display: block; }
 
-        /* ── SECTION SPACING ── */
-        section { margin-bottom: 4rem; }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .sidebar { display: none; }
-            .main-content { margin-left: 0; padding: 1.5rem; }
-            .trait-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .cert-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
-            .hero-name { font-size: 2.2rem; }
-            .self-learn-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        /* Skill Dot Rating */
+        .dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+        .dot-filled { background-color: #22c55e; }
+        .dot-empty { background-color: #e2e8f0; }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg-main); }
-        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 2rem; } }
     </style>
 </head>
 <body>
 
-<!-- ════════════════ SIDEBAR ════════════════ -->
-<aside class="sidebar">
-    <div>
-        <div class="sidebar-logo">
-            <i class="fa-solid fa-leaf leaf-icon"></i>
-            <span class="sidebar-name">Bidisha Dash</span>
+    <aside class="sidebar">
+        <div class="mb-12 px-4">
+            <i class="fa-solid fa-leaf text-3xl text-green-400 mb-4"></i>
+            <h2 class="text-xl font-extrabold tracking-tight">Bidisha Dash</h2>
+            <p class="text-[10px] font-bold text-green-400 uppercase tracking-widest mt-1">Aspiring Ag-Tech Researcher</p>
         </div>
-        <p class="sidebar-subtitle">Aspiring Agricultural<br>Professional</p>
-    </div>
 
-    <nav>
-        <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About Me</a>
-        <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
-        <a href="#skills" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a>
-        <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-        <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
-        <a href="#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i> Certifications</a>
-        <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
-    </nav>
+        <nav class="flex-grow">
+            <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About Me</a>
+            <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+            <a href="#skills" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a>
+            <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+            <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </nav>
 
-    <div class="sidebar-social">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
-        <a href="#"><i class="fa-solid fa-envelope"></i></a>
-    </div>
-</aside>
+        <div class="mt-auto flex gap-4 px-4 pt-6 border-t border-white/10">
+            <a href="#" class="text-white/50 hover:text-green-400 transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+            <a href="#" class="text-white/50 hover:text-green-400 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+        </div>
+    </aside>
 
-<!-- ════════════════ MAIN ════════════════ -->
-<main class="main-content">
+    <main class="main-content">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="floral-top" alt="floral">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="floral-bottom" alt="floral">
 
-    <!-- Leaf decorations -->
-    <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="leaf-decor leaf-decor-tr" alt="">
-    <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="leaf-decor leaf-decor-bl" alt="">
-
-    <!-- ── HOME ── -->
-    <section id="home">
-        <div class="hero-top">
-            <div class="hero-text">
-                <p class="hero-hello">Hello, I'm</p>
-                <h1 class="hero-name">Bidisha Dash</h1>
-                <p class="hero-title">Aspiring Agricultural Professional</p>
-                <p class="hero-desc">Passionate about sustainable agriculture, data-driven solutions and rural development.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View My Work</a>
-                    <a href="#" class="btn-outline">Download CV</a>
+        <section id="home" class="min-h-[80vh] flex flex-col justify-center mb-16">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="flex-1 text-center lg:text-left">
+                    <p class="text-green-600 font-bold mb-2">Hello, I'm</p>
+                    <h1 class="text-6xl font-extrabold text-slate-900 mb-4">Bidisha Dash</h1>
+                    <p class="text-lg text-slate-500 font-medium mb-8">BSc. (Hons.) Agriculture Graduate focused on <span class="text-green-600">Sustainable Solutions</span> and <span class="text-green-600">Ag-Data Research</span>.</p>
+                    
+                    <div class="flex gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="bg-green-800 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-900 transition-all">View My Work</a>
+                        <a href="#" class="border-2 border-slate-200 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all">Download CV</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-80 h-80 rounded-full border-[15px] border-white shadow-2xl overflow-hidden relative z-10">
+                        <img src="profile.jpeg" class="w-full h-full object-cover" alt="Bidisha">
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-50 rounded-full -z-10 opacity-50"></div>
                 </div>
             </div>
-            <div class="hero-photo-wrap">
-                <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="hero-leaf-deco" alt="">
-                <div class="hero-photo-bg"></div>
-                <img src="profile.jpeg" class="hero-photo" alt="Bidisha Dash">
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+                <div class="icon-box"><i class="fa-solid fa-seedling"></i><p class="text-xs font-bold uppercase text-slate-400">Agriculture Student</p></div>
+                <div class="icon-box"><i class="fa-solid fa-database"></i><p class="text-xs font-bold uppercase text-slate-400">Data Enthusiast</p></div>
+                <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i><p class="text-xs font-bold uppercase text-slate-400">Lifelong Learner</p></div>
+                <div class="icon-box"><i class="fa-solid fa-lightbulb"></i><p class="text-xs font-bold uppercase text-slate-400">Problem Solver</p></div>
             </div>
-        </div>
+        </section>
 
-        <div class="trait-grid">
-            <div class="trait-box"><i class="fa-solid fa-seedling"></i><p>Agriculture Student</p></div>
-            <div class="trait-box"><i class="fa-solid fa-database"></i><p>Data Enthusiast</p></div>
-            <div class="trait-box"><i class="fa-solid fa-graduation-cap"></i><p>Lifelong Learner</p></div>
-            <div class="trait-box"><i class="fa-solid fa-lightbulb"></i><p>Problem Solver</p></div>
-        </div>
-
-        <div class="stats-grid" style="margin-top:1rem;">
-            <div class="stat-box"><div class="stat-number">3+</div><div class="stat-label">Projects</div></div>
-            <div class="stat-box"><div class="stat-number">5+</div><div class="stat-label">Certifications</div></div>
-            <div class="stat-box"><div class="stat-number">2+</div><div class="stat-label">Internships</div></div>
-            <div class="stat-box"><div class="stat-number">1+</div><div class="stat-label">Research Work</div></div>
-        </div>
-    </section>
-
-    <!-- ── ABOUT ── -->
-    <section id="about">
-        <h2 class="section-heading">About Me <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-        <div class="about-grid">
-            <div class="card" style="padding:1.5rem;">
-                <p class="about-text">I am a B.Sc. (Hons.) Agriculture student with a deep interest in agronomy, data analysis and sustainable farming practices. I enjoy learning new skills and applying them to solve real-world problems.</p>
-                <p class="about-text" style="margin-top:0.7rem;">My goal is to contribute to the agriculture sector through research, innovation and technology.</p>
-                <div class="about-info-grid">
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <div><span class="info-label">Education</span><span class="info-value">B.Sc.(Hons.) Agriculture</span></div>
-                    </div>
-                    <div class="about-info-item">
+        <section id="education" class="mb-20">
+            <h3 class="text-3xl font-bold mb-10 flex items-center gap-2">Education <i class="fa-solid fa-leaf text-green-500 text-sm"></i></h3>
+            <div class="grid gap-6">
+                <div class="section-card flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
                         <i class="fa-solid fa-university"></i>
-                        <div><span class="info-label">University</span><span class="info-value">SOA University</span></div>
                     </div>
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div><span class="info-label">Location</span><span class="info-value">India</span></div>
-                    </div>
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div><span class="info-label">Email</span><span class="info-value">youremail@mail.com</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="profile.jpeg" class="about-photo" alt="Bidisha">
-            </div>
-        </div>
-
-        <div class="card">
-            <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:0.8rem;">What Drives Me</h4>
-            <div class="drives-grid">
-                <div class="drive-box"><i class="fa-solid fa-leaf"></i><p>Sustainable Agriculture</p></div>
-                <div class="drive-box"><i class="fa-solid fa-people-group"></i><p>Rural Development</p></div>
-                <div class="drive-box"><i class="fa-solid fa-chart-bar"></i><p>Data & Technology</p></div>
-                <div class="drive-box"><i class="fa-solid fa-book-open"></i><p>Lifelong Learning</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── EDUCATION ── -->
-    <section id="education">
-        <h2 class="section-heading">Education <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-
-        <div class="edu-timeline">
-            <!-- Higher Secondary -->
-            <div class="edu-item">
-                <div class="edu-icon hs"><i class="fa-solid fa-school"></i></div>
-                <div style="flex:1;">
-                    <p class="edu-date">2018 — 2020</p>
-                    <p class="edu-degree">Higher Secondary</p>
-                    <p class="edu-school">XYZ Higher Secondary School</p>
-                    <span class="edu-grade">Science Stream (PCM-B) | Grade: 87.6%</span>
-                </div>
-            </div>
-
-            <!-- BSc -->
-            <div class="edu-item" style="flex-direction:column;">
-                <div style="display:flex; gap:16px; align-items:flex-start;">
-                    <div class="edu-icon bsc"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <div style="flex:1;">
-                        <p class="edu-date">2020 — 2024</p>
-                        <p class="edu-degree">B.Sc. (Hons.) Agriculture</p>
-                        <p class="edu-school">Siksha 'O' Anusandhan University</p>
-                        <span class="edu-grade">CGPA: 8.74 / 10</span>
-                    </div>
-                    <span style="font-size:0.68rem; font-weight:700; color:var(--text-muted); background:#f5f5f5; padding:4px 10px; border-radius:20px; white-space:nowrap;">Part of B.Sc. Curriculum</span>
-                </div>
-                <div class="edu-subgrid">
-                    <div class="edu-sub-item"><p class="label">Internship</p><p class="val">Completed a university mandated internship at KVK, Raipur</p></div>
-                    <div class="edu-sub-item"><p class="label">RAWE</p><p class="val">Hands-on learning in rural communities</p></div>
-                    <div class="edu-sub-item"><p class="label">ELP</p><p class="val">Practical exposure through field-based activities</p></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Self Learning -->
-        <div class="card" style="margin-top:1.2rem;">
-            <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:1rem;">Self Learning</h4>
-            <div class="self-learn-grid">
-                <div class="self-learn-col">
-                    <h5>Courses & Certifications</h5>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-dot"></i> ICAR – Foundation Course in Agricultural Extension (TNAU)</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Agricultural Data Management (ICAR)</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Introduction to Soil Health Management (ICAR)</li>
-                        <li style="color:var(--green-accent); font-weight:600;"><i class="fa-solid fa-arrow-right"></i> View all certificates →</li>
-                    </ul>
-                </div>
-                <div class="self-learn-col">
-                    <h5>Technical Skills Learned</h5>
-                    <ul>
-                        <li><i class="fa-brands fa-python"></i> Python</li>
-                        <li><i class="fa-solid fa-r"></i> R</li>
-                        <li><i class="fa-solid fa-database"></i> SQL</li>
-                        <li style="color:var(--text-muted); font-size:0.65rem;">Implemented through academic projects and self-practice.</li>
-                    </ul>
-                </div>
-                <div class="self-learn-col">
-                    <h5>Online Internship</h5>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-dot"></i> AgriSage India</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Remote Intern</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> May – July 2023</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Worked on agri-data collection, market research and report preparation.</li>
-                    </ul>
-                </div>
-                <div class="self-learn-col">
-                    <h5>Upcoming Internship</h5>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-dot"></i> ICAR – IARI, New Delhi</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Research Intern</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> June – July 2024</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Will be working on a research project related to crop improvement.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SKILLS ── -->
-    <section id="skills">
-        <h2 class="section-heading">Skills <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-        <div class="skills-grid">
-            <!-- Technical -->
-            <div class="card">
-                <h4 style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:1.2rem;">Technical Skills</h4>
-                <div class="skill-row">
-                    <span class="skill-name">Agronomy</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Soil Science</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Data Analysis</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Python</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">R</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">SQL</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Statistics</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">GIS Basics</span>
-                    <div class="skill-leaves">
-                        <i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf filled"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i><i class="fa-solid fa-leaf skill-leaf empty"></i>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-extrabold">B.Sc. (Hons.) Agriculture</h4>
+                                <p class="text-slate-500">Siksha ‘O’ Anusandhan University</p>
+                                <p class="text-xs font-bold text-green-600 mt-1">2021 — 2025</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full font-extrabold">CGPA: 8.74</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 border-t pt-6">
+                            <div class="text-sm"><p class="font-bold">Internship</p><p class="text-xs text-slate-500">RKVK mandates</p></div>
+                            <div class="text-sm"><p class="font-bold">RAWE</p><p class="text-xs text-slate-500">Village attachment</p></div>
+                            <div class="text-sm"><p class="font-bold">ELP</p><p class="text-xs text-slate-500">Practical exposure</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Professional -->
-            <div>
-                <div class="card" style="margin-bottom:1rem;">
-                    <h4 style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:1rem;">Professional Skills</h4>
-                    <div class="pro-skill-grid">
-                        <div class="pro-skill-box"><i class="fa-solid fa-magnifying-glass-chart"></i><p>Research & Analysis</p></div>
-                        <div class="pro-skill-box"><i class="fa-solid fa-puzzle-piece"></i><p>Problem Solving</p></div>
-                        <div class="pro-skill-box"><i class="fa-solid fa-clock"></i><p>Time Management</p></div>
-                        <div class="pro-skill-box"><i class="fa-solid fa-comments"></i><p>Communication</p></div>
-                        <div class="pro-skill-box"><i class="fa-solid fa-people-group"></i><p>Teamwork</p></div>
-                        <div class="pro-skill-box"><i class="fa-solid fa-arrows-rotate"></i><p>Adaptability</p></div>
+        <section id="skills" class="mb-20">
+            <h3 class="text-3xl font-bold mb-10">Skills <i class="fa-solid fa-leaf text-green-500 text-sm"></i></h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="section-card">
+                    <h4 class="font-bold mb-6 text-slate-400 text-sm uppercase tracking-widest">Technical Skills</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-sm">Agronomy / Soil Science</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span></div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-sm">Python / R</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-empty"></span><span class="dot dot-empty"></span></div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-sm">Data Analysis (SQL)</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-empty"></span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <h4 style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.8rem;">Tools & Technologies</h4>
-                    <div class="tools-grid">
-                        <div class="tool-chip"><i class="fa-solid fa-file-excel" style="color:#217346;"></i> Microsoft Excel</div>
-                        <div class="tool-chip"><i class="fa-solid fa-table-cells" style="color:#0f9d58;"></i> Google Sheets</div>
-                        <div class="tool-chip"><i class="fa-solid fa-r" style="color:#276DC3;"></i> R Studio</div>
-                        <div class="tool-chip"><i class="fa-solid fa-code" style="color:#007ACC;"></i> VS Code</div>
-                        <div class="tool-chip"><i class="fa-solid fa-map" style="color:#5c832f;"></i> QGIS</div>
-                        <div class="tool-chip"><i class="fa-solid fa-pen-nib" style="color:#ff3366;"></i> Canva</div>
-                    </div>
+                <div class="section-card flex flex-col justify-center text-center bg-green-50/30 border-green-100">
+                    <p class="italic text-slate-600">"Applying data-driven insights to sustainable farming practices."</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ── PROJECTS ── -->
-    <section id="projects">
-        <h2 class="section-heading">Projects <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-
-        <div class="project-card">
-            <div class="project-img"><i class="fa-solid fa-seedling"></i></div>
-            <div style="flex:1;">
-                <span class="project-tag">Research Project</span>
-                <p class="project-name">Effect of Organic Amendments on Soil Health</p>
-                <p class="project-desc">Studied the impact of different organic amendments on physical and chemical properties of soil.</p>
-                <p class="project-tools">Tools: R, Excel</p>
-            </div>
-            <div><a href="#" class="project-link">View Details →</a></div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img"><i class="fa-solid fa-wheat-awn"></i></div>
-            <div style="flex:1;">
-                <span class="project-tag">Academic Project</span>
-                <p class="project-name">Yield Prediction of Wheat using Machine Learning</p>
-                <p class="project-desc">Developed ML models to predict wheat yield based on soil and climatic parameters.</p>
-                <p class="project-tools">Tools: Python, Scikit-learn</p>
-            </div>
-            <div><a href="#" class="project-link">View Details →</a></div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img"><i class="fa-solid fa-people-group"></i></div>
-            <div style="flex:1;">
-                <span class="project-tag">Field Project</span>
-                <p class="project-name">Rural Livelihoods & Sustainable Agriculture</p>
-                <p class="project-desc">Explored livelihood practices and sustainable farming adoption in rural communities.</p>
-                <p class="project-tools">Tools: Survey, Excel</p>
-            </div>
-            <div><a href="#" class="project-link">View Details →</a></div>
-        </div>
-    </section>
-
-    <!-- ── PUBLICATIONS ── -->
-    <section id="publications">
-        <h2 class="section-heading">Publications <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-
-        <div class="pub-item">
-            <div class="pub-icon"><i class="fa-solid fa-file-lines"></i></div>
-            <div>
-                <p class="pub-title">Impact of Integrated Nutrient Management on Soil Fertility</p>
-                <p class="pub-journal">Journal of Agricultural Research and Development, 2024</p>
-                <p class="pub-desc">Co-authored with university research team.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-            </div>
-        </div>
-
-        <div class="pub-item">
-            <div class="pub-icon"><i class="fa-solid fa-file-lines"></i></div>
-            <div>
-                <p class="pub-title">Role of Cover Crops in Sustainable Agriculture</p>
-                <p class="pub-journal">AgriVature – Student Research Journal, 2023</p>
-                <p class="pub-desc">Explores benefits of cover crops in improving soil health and productivity.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-            </div>
-        </div>
-
-        <div class="pub-item">
-            <div class="pub-icon"><i class="fa-solid fa-file-lines"></i></div>
-            <div>
-                <p class="pub-title">Data-Driven Approaches in Precision Agriculture</p>
-                <p class="pub-journal">National Conference on Smart Agriculture, 2023</p>
-                <p class="pub-desc">Presented a paper on applications of data analytics in agriculture.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── CERTIFICATIONS ── -->
-    <section id="certifications">
-        <h2 class="section-heading">Certifications <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#e8f4e8;"><i class="fa-solid fa-certificate" style="color:var(--green-accent);"></i></div>
-                <p class="cert-name">ICAR – Foundation Course in Agricultural Extension (TNAU)</p>
-                <p class="cert-org">ICAR</p>
-                <p class="cert-year">2023</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#e8f0fb;"><i class="fa-solid fa-database" style="color:#4a6fa5;"></i></div>
-                <p class="cert-name">Agricultural Data Management</p>
-                <p class="cert-org">ICAR</p>
-                <p class="cert-year">2023</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#fff3e0;"><i class="fa-solid fa-flask" style="color:#e67e22;"></i></div>
-                <p class="cert-name">Introduction to Soil Health Management</p>
-                <p class="cert-org">ICAR</p>
-                <p class="cert-year">2023</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#fce8e8;"><i class="fa-brands fa-python" style="color:#c0392b;"></i></div>
-                <p class="cert-name">Python for Everybody (Coursera)</p>
-                <p class="cert-org">Coursera</p>
-                <p class="cert-year">2023</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#e8f4e8;"><i class="fa-solid fa-r" style="color:var(--green-accent);"></i></div>
-                <p class="cert-name">Data Analysis with R (Coursera)</p>
-                <p class="cert-org">Coursera</p>
-                <p class="cert-year">2023</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon" style="background:#e8f0fb;"><i class="fa-solid fa-database" style="color:#4a6fa5;"></i></div>
-                <p class="cert-name">SQL for Data Science (DataCamp)</p>
-                <p class="cert-org">DataCamp</p>
-                <p class="cert-year">2023</p>
-            </div>
-        </div>
-        <p style="text-align:center; margin-top:1.2rem;"><a href="#" style="font-size:0.78rem; font-weight:700; color:var(--green-accent); text-decoration:none;">View All Certificates →</a></p>
-    </section>
-
-    <!-- ── CONTACT ── -->
-    <section id="contact">
-        <h2 class="section-heading">Contact Me <i class="fa-solid fa-leaf leaf-sm"></i></h2>
-        <div class="contact-grid">
-            <div class="card">
-                <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:0.5rem;">Let's Connect</h4>
-                <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:1.2rem;">I'm always open to discussing new opportunities, collaborations or interesting projects.</p>
-
-                <div class="contact-info-item"><i class="fa-solid fa-envelope"></i> youremail@gmail.com</div>
-                <div class="contact-info-item"><i class="fa-solid fa-phone"></i> +91 98765 43210</div>
-                <div class="contact-info-item"><i class="fa-solid fa-location-dot"></i> India</div>
-                <div class="contact-info-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/yourprofile</div>
-                <div class="contact-info-item"><i class="fa-brands fa-github"></i> github.com/yourusername</div>
-            </div>
-            <div class="card">
-                <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:1rem;">Send a Message</h4>
-                <input type="text" class="form-field" placeholder="Your Name">
-                <input type="email" class="form-field" placeholder="Your Email">
-                <input type="text" class="form-field" placeholder="Subject">
-                <textarea class="form-field" placeholder="Your Message"></textarea>
-                <button class="btn-send">Send Message</button>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        © 2024 Bidisha Dash. All Rights Reserved.
-    </footer>
-
-</main>
-
-<script>
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + entry.target.id) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    sections.forEach(s => observer.observe(s));
-</script>
+    </main>
 
 </body>
 </html>
