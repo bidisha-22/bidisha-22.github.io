@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-cream: #F8F7F2;
-            --sidebar-deep-green: #12372A; /* Deep Forest Green */
+            --sidebar-deep-green: #12372A;
             --primary-green: #6D8B5A;
             --text-dark: #1F1F1F;
             --border-color: #E2E5DA;
@@ -29,7 +29,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Sidebar - Updated to Deep Forest Green */
         .sidebar {
             width: 260px; 
             background-color: var(--sidebar-deep-green); 
@@ -67,7 +66,6 @@
             background-color: rgba(255,255,255,0.15); 
         }
 
-        /* Main Content */
         .main-content { margin-left: 260px; position: relative; }
 
         .botanical-top { position: absolute; top: 0; right: 0; width: 400px; opacity: 0.15; pointer-events: none; z-index: 1; }
@@ -75,15 +73,26 @@
 
         .content-wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
 
-        .profile-container { position: relative; width: 380px; height: 380px; }
+        /* Profile Container with Leaves */
+        .profile-container { position: relative; width: 420px; height: 420px; display: flex; align-items: center; justify-content: center; }
+        
         .profile-img {
             width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
-            border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            border: 8px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
             position: relative; z-index: 2;
         }
+
+        /* The Leaf Frame SVG */
         .leaf-frame-svg {
-            position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
-            fill: #EEF1E7; z-index: 1; opacity: 0.7;
+            position: absolute;
+            width: 140%;
+            height: 140%;
+            top: -20%;
+            left: -20%;
+            z-index: 1;
+            opacity: 0.4;
+            pointer-events: none;
+            transform: rotate(-10deg);
         }
 
         .card-modern {
@@ -159,8 +168,17 @@
                     </div>
 
                     <div class="profile-container">
-                        <svg class="leaf-frame-svg" viewBox="0 0 200 200">
-                            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.4,41.9C63.6,54.7,51.7,65.9,38,72.6C24.3,79.3,8.7,81.6,-6.3,79.3C-21.3,77,-35.7,70.1,-48.4,60.8C-61.1,51.5,-72.1,39.9,-77.8,26.2C-83.5,12.5,-83.8,-3.3,-79.9,-17.8C-76,-32.3,-67.9,-45.5,-56.3,-53.8C-44.7,-62.1,-29.6,-65.4,-15.1,-71.4C-0.6,-77.4,14.7,-86.1,30.6,-83.7C46.5,-81.3,63,-67.7,44.7,-76.4Z" transform="translate(100 100)" />
+                        <svg class="leaf-frame-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke="#6D8B5A" stroke-width="2" stroke-linecap="round">
+                                <path d="M350,150 Q400,100 450,120 M400,110 Q420,80 440,90 M400,110 Q380,80 370,100" />
+                                <path d="M380,130 Q430,140 440,180 M410,145 Q440,130 450,150" />
+                                <path d="M150,350 Q100,400 50,380 M100,390 Q80,420 60,410 M100,390 Q120,420 130,400" />
+                                <path d="M120,370 Q70,360 60,320 M90,355 Q60,370 50,350" />
+                                <ellipse cx="420" cy="130" rx="15" ry="7" transform="rotate(-30 420 130)" />
+                                <ellipse cx="380" cy="90" rx="12" ry="6" transform="rotate(-60 380 90)" />
+                                <ellipse cx="80" cy="370" rx="15" ry="7" transform="rotate(30 80 370)" />
+                                <ellipse cx="120" cy="410" rx="12" ry="6" transform="rotate(60 120 410)" />
+                            </g>
                         </svg>
                         <img src="profile.jpg" alt="Bidisha Dash" class="profile-img">
                     </div>
