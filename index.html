@@ -157,8 +157,8 @@
             <section id="home" class="min-h-screen flex flex-col justify-center py-20">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
                     <div class="flex-1 text-center lg:text-left">
-                        <h1 class="text-7xl font-bold mb-6 leading-tight min-h-[1.2em]">
-                        <span id="typing-effect"></span>
+                        <h1 class="text-7xl font-bold mb-6 leading-tight min-h-[1.2em] text-[#6D8B5A]">
+                    <span id="typing-effect"></span>
                     </h1>
                     
                     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -510,22 +510,24 @@
         
         <div class="botanical-bottom"></div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <script>
-  var typed = new Typed('#typing-effect', {
-    strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-    typeSpeed: 100,
-    loop: false, 
-    fadeOut: false, // Prevents any fading logic from triggering
-    shuffle: false, // Ensures text stays in order
-    backSpeed: 0, 
-    backDelay: 9999999, // A massive delay so it never even thinks about backspacing
-    showCursor: true,
-    cursorChar: '|',
-    onComplete: (self) => {
-      // This forces the cursor to stay active and prevents the library from clearing the text
-      self.cursor.classList.add('typed-cursor--blink');
-    }
-  });
-</script>
+      var typed = new Typed('#typing-effect', {
+        strings: ['Bidisha <span class="text-[#1F1F1F]">Dash</span>'],
+        typeSpeed: 100,
+        loop: false, 
+        fadeOut: false,
+        backSpeed: 0,
+        backDelay: 9999999,
+        showCursor: true,
+        cursorChar: '|',
+        contentType: 'html',
+        onComplete: (self) => {
+          self.cursor.classList.add('typed-cursor--blink');
+        }
+      });
+    </script>
+</body>
 </body>
 </html>
