@@ -511,19 +511,21 @@
         <div class="botanical-bottom"></div>
     </main>
     <script>
-      var typed = new Typed('#typing-effect', {
-        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-        typeSpeed: 100,
-        loop: false, 
-        backSpeed: 0, // Ensures it doesn't try to backspace
-        smartBackspace: false, // Prevents partial erasing
-        showCursor: true,
-        cursorChar: '|',
-        onComplete: (self) => {
-          // This keeps the cursor blinking after the name is fully typed
-          self.cursor.classList.add('typed-cursor--blink');
-        }
-      });
-    </script>
+  var typed = new Typed('#typing-effect', {
+    strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
+    typeSpeed: 100,
+    loop: false, 
+    fadeOut: false, // Prevents any fading logic from triggering
+    shuffle: false, // Ensures text stays in order
+    backSpeed: 0, 
+    backDelay: 9999999, // A massive delay so it never even thinks about backspacing
+    showCursor: true,
+    cursorChar: '|',
+    onComplete: (self) => {
+      // This forces the cursor to stay active and prevents the library from clearing the text
+      self.cursor.classList.add('typed-cursor--blink');
+    }
+  });
+</script>
 </body>
 </html>
