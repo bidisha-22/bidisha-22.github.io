@@ -6,98 +6,83 @@
     <title>Bidisha Dash | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-cream: #F8F7F2;
-            --sidebar-green: #EEF1E7;
-            --primary-green: #6D8B5A;
-            --text-dark: #1F1F1F;
-            --border-color: #E2E5DA;
+            --bg-base: #f7f6f2; /* Exact Background */
+            --sidebar-bg: #eef1e8; /* Exact Sidebar */
+            --primary-green: #708c5a; /* Exact Green */
+            --text-main: #151515; /* Exact Dark Text */
         }
 
         body { 
-            background-color: var(--bg-cream); 
-            color: var(--text-dark); 
+            background-color: var(--bg-base); 
+            color: var(--text-main); 
             font-family: 'Inter', sans-serif; 
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
+        .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Sidebar - Exact Color and Spacing */
+        /* EXACT SIDEBAR SPACING */
         .sidebar {
-            width: 260px; background-color: var(--sidebar-green); 
+            width: 260px; background-color: var(--sidebar-bg); 
             position: fixed; height: 100vh; display: flex; flex-direction: column;
-            padding: 3rem 1.5rem; z-index: 50; border-right: 1px solid var(--border-color);
+            padding: 4rem 1.5rem; z-index: 50;
         }
 
         .nav-link {
-            display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-            border-radius: 12px; color: #6B6B6B; font-weight: 500; font-size: 0.95rem;
-            transition: all 0.3s ease; margin-bottom: 4px;
+            display: flex; align-items: center; gap: 1rem; h: 58px; padding: 0 1.5rem;
+            border-radius: 16px; color: #666; font-weight: 500; transition: 0.3s;
+            margin-bottom: 0.5rem;
         }
 
-        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.5); color: var(--primary-green); }
-        .nav-link.active { font-weight: 700; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-link:hover, .nav-link.active { background-color: white; color: var(--primary-green); box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
 
-        /* Main Content */
-        .main-content { margin-left: 260px; position: relative; }
+        /* MAIN CONTENT PADDING */
+        .main-content { margin-left: 260px; max-width: 1500px; padding: 5rem 6rem; position: relative; }
 
-        /* Botanical Decorations - SVG for no-break loading */
-        .botanical-top { position: absolute; top: 0; right: 0; width: 400px; opacity: 0.15; pointer-events: none; z-index: 1; }
-        .botanical-bottom { position: fixed; bottom: -20px; left: 240px; width: 300px; opacity: 0.1; pointer-events: none; z-index: 1; }
-
-        .content-wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
-
-        /* Profile Area */
-        .profile-container { position: relative; width: 380px; height: 380px; }
-        .profile-img {
-            width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
-            border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
-            position: relative; z-index: 2;
-        }
-        .leaf-frame-svg {
-            position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
-            fill: var(--sidebar-green); z-index: 1; opacity: 0.7;
+        /* HERO TYPOGRAPHY */
+        .hero-title {
+            font-size: 110px; line-height: 0.9; letter-spacing: -3px; font-weight: 700;
+            color: var(--text-main); margin-top: 1rem;
         }
 
-        /* Cards - 24px rounded corners per instructions */
-        .card-modern {
-            background: white; border: 1px solid var(--border-color); border-radius: 24px;
-            padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+        .hero-intro { font-size: 28px; font-weight: 500; color: var(--primary-green); }
+        .hero-desc { font-size: 26px; line-height: 1.6; color: #666; margin-top: 2.5rem; max-width: 650px; }
+
+        /* EXACT IMAGE DESIGN & LAYERING */
+        .image-section { position: relative; width: 500px; height: 500px; display: flex; align-items: center; justify-content: center; }
+        
+        .bg-blob {
+            position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            background-color: #dfe4d5; opacity: 0.5; filter: blur(4px); z-index: 1;
         }
-        .card-modern:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
-        .card-modern i { color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1rem; display: block; }
-        .card-modern p { font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Stats Section */
-        .stats-grid {
-            background-color: var(--sidebar-green); border-radius: 24px; padding: 2.5rem;
-            display: grid; grid-template-cols: repeat(4, 1fr); margin-top: 4rem;
+        
+        .image-ring {
+            width: 430px; height: 430px; border-radius: 50%; border: 16px solid white;
+            position: relative; z-index: 2; overflow: hidden; box-shadow: 0 15px 45px rgba(0,0,0,0.04);
         }
-        .stat-line { border-right: 1px solid #D8DCCF; text-align: center; }
-        .stat-line:last-child { border-right: none; }
 
-        /* Buttons */
-        .btn-green { background-color: var(--primary-green); color: white; padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
-        .btn-white { background-color: white; border: 1px solid var(--border-color); color: var(--text-dark); padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
-        .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        /* BUTTONS */
+        .btn-primary { background-color: var(--primary-green); color: white; padding: 1.25rem 3rem; border-radius: 20px; font-size: 1.25rem; font-weight: 600; transition: 0.3s; }
+        .btn-secondary { background-color: white; border: 1px solid #ddd; padding: 1.25rem 3rem; border-radius: 20px; font-size: 1.25rem; font-weight: 600; transition: 0.3s; }
+        .btn-primary:hover { background-color: #5f7a4a; }
 
-        @media (max-width: 1024px) { .sidebar { display: none; } .main-content { margin-left: 0; } }
+        /* BOTANICAL OVERLAYS */
+        .leaf-decor { position: absolute; opacity: 0.08; pointer-events: none; z-index: 1; }
+
+        @media (max-width: 1200px) { .hero-title { font-size: 80px; } .main-content { padding: 3rem; } }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="mb-12 px-2">
-            <div class="text-green-700 text-3xl mb-6"><i class="fa-solid fa-leaf"></i></div>
+        <div class="mb-16 px-4">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" class="mb-6"><path d="M2 22C2 17.5 5.5 14 10 14C14.5 14 18 17.5 18 22" stroke="#708c5a" stroke-width="2"/><circle cx="12" cy="7" r="5" stroke="#708c5a" stroke-width="2"/></svg>
             <h2 class="text-2xl font-serif text-slate-900 leading-tight">Bidisha Dash</h2>
-            <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mt-2">Aspiring Ag-Tech Researcher</p>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Aspiring Ag-Tech Researcher</p>
         </div>
 
         <nav class="flex-grow">
@@ -105,96 +90,58 @@
             <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About Me</a>
             <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
             <a href="#skills" class="nav-link"><i class="fa-solid fa-seedling"></i> Skills</a>
-            <a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open"></i> Projects</a>
+            <a href="#projects" class="nav-link"><i class="fa-solid fa-folder"></i> Projects</a>
             <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
             <a href="#certifications" class="nav-link"><i class="fa-solid fa-award"></i> Certifications</a>
             <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </nav>
-
-        <div class="mt-auto flex gap-6 px-4 pt-8 border-t border-[#D8DCCF]">
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-brands fa-github text-lg"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-800"><i class="fa-solid fa-envelope text-lg"></i></a>
-        </div>
     </aside>
 
     <main class="main-content">
-        <div class="botanical-top">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#6D8B5A" d="M38.1,-63.4C49.5,-57.1,59,-47.1,66.1,-35.3C73.1,-23.5,77.7,-9.9,76.6,3.5C75.4,16.9,68.5,30.1,59.3,40.8C50.1,51.5,38.6,59.7,25.8,64.9C13,70.1,-0.8,72.4,-15.5,70.8C-30.3,69.2,-46,63.7,-57.8,53.4C-69.6,43.1,-77.4,27.9,-79.8,11.9C-82.2,-4,-79.2,-20.7,-71.4,-34.5C-63.6,-48.3,-51,-59.1,-37.5,-64.5C-24,-69.8,-9.6,-69.6,2.4,-64.1C14.3,-58.5,26.7,-69.7,38.1,-63.4Z" transform="translate(100 100)" />
-            </svg>
-        </div>
+        <svg class="leaf-decor top-0 right-0 w-[400px]" viewBox="0 0 200 200"><path fill="#708c5a" d="M40,-64C51,-57,59,-45,65,-32C71,-19,75,-5,73,7C71,20,63,33,52,42C42,52,30,59,17,63C4,67,-9,67,-22,64C-35,60,-47,52,-57,42C-66,31,-73,18,-75,4C-76,-9,-71,-23,-63,-35C-54,-46,-41,-56,-28,-61C-15,-67,-2,-69,10,-68C23,-66,31,-62,40,-64Z" transform="translate(100 100)"/></svg>
 
-        <div class="content-wrapper">
-            <section id="home" class="min-h-screen flex flex-col justify-center py-20">
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
-                    <div class="flex-1 text-center lg:text-left">
-                        <p class="text-[#6D8B5A] font-bold text-lg mb-4">Hello, I'm</p>
-                        <h1 class="text-7xl font-bold text-[#1F1F1F] mb-6 leading-tight">Bidisha Dash</h1>
-                        <p class="text-xl text-[#6B6B6B] font-medium leading-relaxed mb-12 max-w-lg">
-                            Passionate about sustainable agriculture, data-driven solutions and rural development.
-                        </p>
-                        
-                        <div class="flex gap-5 justify-center lg:justify-start">
-                            <button class="btn-green">View My Work</button>
-                            <button class="btn-white">Download CV</button>
-                        </div>
-                    </div>
-
-                    <div class="profile-container">
-                        <svg class="leaf-frame-svg" viewBox="0 0 200 200">
-                            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.4,41.9C63.6,54.7,51.7,65.9,38,72.6C24.3,79.3,8.7,81.6,-6.3,79.3C-21.3,77,-35.7,70.1,-48.4,60.8C-61.1,51.5,-72.1,39.9,-77.8,26.2C-83.5,12.5,-83.8,-3.3,-79.9,-17.8C-76,-32.3,-67.9,-45.5,-56.3,-53.8C-44.7,-62.1,-29.6,-65.4,-15.1,-71.4C-0.6,-77.4,14.7,-86.1,30.6,-83.7C46.5,-81.3,63,-67.7,44.7,-76.4Z" transform="translate(100 100)" />
-                        </svg>
-                        <img src="profile.jpg" alt="Bidisha Dash" class="profile-img">
-                    </div>
+        <section id="home" class="min-h-[90vh] flex items-center justify-between">
+            <div class="max-w-[650px] relative z-10">
+                <p class="hero-intro">Hello, I'm</p>
+                <h1 class="hero-title font-serif">
+                    Bidisha<br>Dash
+                </h1>
+                <p class="hero-desc">
+                    Passionate about sustainable agriculture, data-driven solutions and rural development.
+                </p>
+                
+                <div class="flex gap-6 mt-14">
+                    <button class="btn-primary">View My Work</button>
+                    <button class="btn-secondary">Download CV</button>
                 </div>
+            </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24">
-                    <div class="card-modern">
-                        <i class="fa-solid fa-leaf"></i>
-                        <p>Agriculture Student</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-database"></i>
-                        <p>Data Enthusiast</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <p>Lifelong Learner</p>
-                    </div>
-                    <div class="card-modern">
-                        <i class="fa-solid fa-brain"></i>
-                        <p>Problem Solver</p>
-                    </div>
+            <div class="image-section">
+                <div class="bg-blob"></div>
+                <div class="image-ring">
+                    <img src="profile.jpg" alt="Bidisha Dash" class="w-full h-full object-cover">
                 </div>
+            </div>
+        </section>
 
-                <div class="stats-grid">
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">3+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Projects</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">5+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Certifications</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">2+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Internships</p>
-                    </div>
-                    <div class="stat-line">
-                        <span class="text-4xl font-bold text-[#1F1F1F]">1+</span>
-                        <p class="text-sm font-semibold text-[#6B6B6B] mt-1">Research Work</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="botanical-bottom">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#6D8B5A" d="M47.5,-63.3C59.9,-54.1,67.1,-38.7,70.5,-23.4C73.9,-8.1,73.5,7.1,68.4,20.8C63.3,34.5,53.5,46.7,40.9,54.9C28.3,63.1,12.9,67.3,-2.6,71C-18.1,74.7,-33.7,77.9,-46.7,72.4C-59.7,66.9,-70,52.7,-74.6,37.3C-79.2,21.9,-78.1,5.3,-73.4,-9.5C-68.7,-24.3,-60.4,-37.3,-49.2,-46.9C-38,-56.5,-23.9,-62.7,-8.4,-61.5C7.1,-60.4,22.7,-51.9,47.5,-63.3Z" transform="translate(100 100)" />
-            </svg>
+        <div class="grid grid-cols-4 gap-10 mt-12">
+            <div class="bg-white border border-[#e2e5da] rounded-[24px] p-10 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-center">
+                <i class="fa-solid fa-seedling text-2xl text-[#708c5a] mb-4 block"></i>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Agriculture Student</span>
+            </div>
+            <div class="bg-white border border-[#e2e5da] rounded-[24px] p-10 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-center">
+                <i class="fa-solid fa-chart-line text-2xl text-[#708c5a] mb-4 block"></i>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Data Enthusiast</span>
+            </div>
+            <div class="bg-white border border-[#e2e5da] rounded-[24px] p-10 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-center">
+                <i class="fa-solid fa-graduation-cap text-2xl text-[#708c5a] mb-4 block"></i>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Lifelong Learner</span>
+            </div>
+            <div class="bg-white border border-[#e2e5da] rounded-[24px] p-10 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-center">
+                <i class="fa-solid fa-lightbulb text-2xl text-[#708c5a] mb-4 block"></i>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Problem Solver</span>
+            </div>
         </div>
     </main>
-
 </body>
 </html>
