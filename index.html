@@ -486,40 +486,40 @@
         
         <div class="botanical-bottom"></div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
-  var typed = new Typed('#typing-effect', {
-    // We add the green color back to "Bidisha" here
-    strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-    typeSpeed: 100,
-    loop: false, 
-    fadeOut: false,
-    backSpeed: 0,
-    backDelay: 9999999,
-    showCursor: true,
-    cursorChar: '|',
-    contentType: 'html',
-    onComplete: (self) => {
-      self.cursor.classList.add('typed-cursor--blink');
+    // 1. TYPING EFFECT FOR THE NAME
+    var typedName = new Typed('#typing-effect', {
+        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
+        typeSpeed: 100,
+        loop: false,
+        showCursor: true,
+        cursorChar: '|',
+        onComplete: (self) => {
+            self.cursor.classList.add('typed-cursor--blink');
+            // Start the mission typing AFTER the name is finished
+            startMissionTyping(); 
+        }
+    });
+
+    // 2. TYPING EFFECT FOR THE MISSION SENTENCES
+    function startMissionTyping() {
+        var typedMission = new Typed('#typewriter-mission', {
+            strings: [
+                'Aspiring sustainable agriculture researcher', 
+                'Agricultural data science enthusiast', 
+                'Integrated disease management advocate',
+                'Food security champion'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            startDelay: 500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
     }
-  });
-</script>
-var typedMission = new Typed('#typewriter-mission', {
-    strings: [
-      'Aspiring sustainable agriculture researcher', 
-      'Agricultural data science enthusiast', 
-      'Integrated disease management advocate',
-      'Food security champion'
-    ],
-    typeSpeed: 80,
-    backSpeed: 60,
-    backDelay: 2000,
-    startDelay: 1000, // Waits for your name to finish first
-    loop: true,
-    showCursor: true,
-    cursorChar: '|'
-});
 </script>
 </body>
 </html>
