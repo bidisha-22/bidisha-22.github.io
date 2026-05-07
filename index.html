@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-cream: #F8F7F2;
-            --sidebar-deep-green: #12372A;
+            --sidebar-deep-green: #12372A; /* Deep Forest Green */
             --primary-green: #6D8B5A;
             --text-dark: #1F1F1F;
             --border-color: #E2E5DA;
@@ -29,6 +29,7 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* Sidebar - Updated to Deep Forest Green */
         .sidebar {
             width: 260px; 
             background-color: var(--sidebar-deep-green); 
@@ -66,6 +67,7 @@
             background-color: rgba(255,255,255,0.15); 
         }
 
+        /* Main Content */
         .main-content { margin-left: 260px; position: relative; }
 
         .botanical-top { position: absolute; top: 0; right: 0; width: 400px; opacity: 0.15; pointer-events: none; z-index: 1; }
@@ -73,25 +75,15 @@
 
         .content-wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
 
-        /* Profile Container with Leaves */
-        .profile-container { position: relative; width: 420px; height: 420px; display: flex; align-items: center; justify-content: center; }
-        
+        .profile-container { position: relative; width: 380px; height: 380px; }
         .profile-img {
             width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
-            border: 8px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
             position: relative; z-index: 2;
         }
-
-        /* The Detailed Botanical Leaf Frame */
         .leaf-frame-svg {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            z-index: 1;
-            opacity: 0.6;
-            pointer-events: none;
+            position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
+            fill: #EEF1E7; z-index: 1; opacity: 0.7;
         }
 
         .card-modern {
@@ -167,17 +159,8 @@
                     </div>
 
                     <div class="profile-container">
-                        <svg class="leaf-frame-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="none" stroke="#6D8B5A" stroke-width="1.5" stroke-linecap="round">
-                                <path d="M380,180 Q450,120 480,160 M420,145 Q440,110 470,120 M420,145 Q400,100 380,120" />
-                                <path d="M410,195 Q470,220 480,260 M440,210 Q470,190 490,210" />
-                                <path d="M120,320 Q50,380 20,340 M80,355 Q60,390 30,380 M80,355 Q100,400 120,380" />
-                                <path d="M90,305 Q30,280 20,240 M60,290 Q30,310 10,290" />
-                                <ellipse cx="460" cy="150" rx="18" ry="8" transform="rotate(-30 460 150)" />
-                                <ellipse cx="400" cy="110" rx="14" ry="6" transform="rotate(-60 400 110)" />
-                                <ellipse cx="40" cy="350" rx="18" ry="8" transform="rotate(30 40 350)" />
-                                <ellipse cx="100" cy="390" rx="14" ry="6" transform="rotate(60 100 390)" />
-                            </g>
+                        <svg class="leaf-frame-svg" viewBox="0 0 200 200">
+                            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.4,41.9C63.6,54.7,51.7,65.9,38,72.6C24.3,79.3,8.7,81.6,-6.3,79.3C-21.3,77,-35.7,70.1,-48.4,60.8C-61.1,51.5,-72.1,39.9,-77.8,26.2C-83.5,12.5,-83.8,-3.3,-79.9,-17.8C-76,-32.3,-67.9,-45.5,-56.3,-53.8C-44.7,-62.1,-29.6,-65.4,-15.1,-71.4C-0.6,-77.4,14.7,-86.1,30.6,-83.7C46.5,-81.3,63,-67.7,44.7,-76.4Z" transform="translate(100 100)" />
                         </svg>
                         <img src="profile.jpg" alt="Bidisha Dash" class="profile-img">
                     </div>
