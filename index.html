@@ -102,6 +102,21 @@
         .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
         @media (max-width: 1024px) { .sidebar { display: none; } .main-content { margin-left: 0; } }
+        /* Customizing the typing cursor to match your theme */
+        .typed-cursor {
+            color: #6D8B5A;
+            font-size: 4rem;
+            opacity: 1;
+            animation: typedjsBlink 0.7s infinite;
+        }
+        
+        @keyframes typedjsBlink {
+            50% { opacity: 0.0; }
+        }
+        
+        #typing-effect {
+            font-family: 'Playfair Display', serif;
+        }
     </style>
 </head>
 <body>
@@ -142,8 +157,21 @@
             <section id="home" class="min-h-screen flex flex-col justify-center py-20">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
                     <div class="flex-1 text-center lg:text-left">
-                        <p class="text-[#6D8B5A] font-bold text-lg mb-4">Hello, I'm</p>
-                        <h1 class="text-7xl font-bold text-[#1F1F1F] mb-6 leading-tight">Bidisha Dash</h1>
+                        <h1 class="text-7xl font-bold mb-6 leading-tight min-h-[1.2em]">
+                        <span id="typing-effect"></span>
+                    </h1>
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                    <script>
+                      var typed = new Typed('#typing-effect', {
+                        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
+                        typeSpeed: 100,
+                        backSpeed: 50,
+                        loop: true,
+                        showCursor: true,
+                        cursorChar: '|'
+                      });
+                    </script>
                         <p class="text-xl text-[#6B6B6B] font-medium leading-relaxed mb-12 max-w-lg">
                             Passionate about sustainable agriculture, data-driven solutions and rural development.
                         </p>
@@ -483,16 +511,15 @@
         <div class="botanical-bottom"></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-<script>
-  var typed = new Typed('#typing-effect', {
-    strings: ['<span class="text-[#6D8B5A]">Bidisha</span> <span class="text-[#4A4A4A]">Dash</span>'],
-    typeSpeed: 100,
-    backSpeed: 50,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|'
-  });
-</script>
+    <script>
+      var typed = new Typed('#typing-effect', {
+        strings: ['<span class="text-[#6D8B5A]">Bidisha</span> <span class="text-[#1F1F1F]">Dash</span>'],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+      });
+    </script>
 </body>
 </html>
