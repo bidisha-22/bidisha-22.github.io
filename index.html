@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidisha Dash | Agriculture & AI Researcher</title>
+    <title>Bidisha Dash | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
-        body { background-color: #fcfdfa; color: #2d3436; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { 
+            background-color: #fcfdfa; 
+            color: #2d3436; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+            background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Subtle leaf texture */
+        }
+
+        /* Floral Decorative Accents */
+        .floral-top { position: absolute; top: 0; right: 0; width: 300px; opacity: 0.1; z-index: -1; pointer-events: none; }
+        .floral-bottom { position: fixed; bottom: -50px; left: 240px; width: 350px; opacity: 0.1; z-index: -1; pointer-events: none; }
 
         /* Sidebar Styling */
         .sidebar {
-            width: 280px; background-color: #ffffff; border-right: 1px solid #edf2f7;
+            width: 280px; background-color: #052e16; color: white; /* Dark forest green sidebar */
             position: fixed; height: 100vh; display: flex; flex-direction: column;
             padding: 2.5rem 1.5rem; z-index: 50;
         }
 
         .nav-link {
             display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-            border-radius: 12px; color: #64748b; font-weight: 500; transition: all 0.2s ease; margin-bottom: 4px;
+            border-radius: 12px; color: #a1a1aa; font-weight: 500; transition: all 0.2s ease; margin-bottom: 4px;
         }
 
-        .nav-link:hover, .nav-link.active { background-color: #f0fdf4; color: #166534; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.1); color: #4ade80; }
 
-        /* Content Area */
-        .main-content { margin-left: 280px; padding: 4rem; max-width: 1200px; }
+        /* Main Content */
+        .main-content { margin-left: 280px; padding: 4rem; max-width: 1200px; position: relative; }
 
         .section-card {
-            background: white; border-radius: 24px; padding: 2.5rem;
-            border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 2rem;
+            background: white; border-radius: 20px; padding: 2.5rem;
+            border: 1px solid #eef2f3; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 2rem;
         }
 
-        .skill-dot-filled { height: 8px; width: 8px; background-color: #22c55e; border-radius: 50%; display: inline-block; margin-right: 4px; }
-        .skill-dot-empty { height: 8px; width: 8px; background-color: #e2e8f0; border-radius: 50%; display: inline-block; margin-right: 4px; }
+        /* Floating Icon Boxes (Agriculture Student, Data Enthusiast, etc) */
+        .icon-box {
+            text-align: center; padding: 1.5rem; background: white; border-radius: 15px;
+            border: 1px solid #f1f5f9; transition: transform 0.3s ease;
+        }
+        .icon-box:hover { transform: translateY(-5px); border-color: #4ade80; }
+        .icon-box i { font-size: 1.5rem; color: #166534; margin-bottom: 0.75rem; display: block; }
 
-        #typewriter-name::after { content: '|'; animation: blink 1s infinite; color: #22c55e; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        /* Skill Dot Rating */
+        .dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+        .dot-filled { background-color: #22c55e; }
+        .dot-empty { background-color: #e2e8f0; }
 
         @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 2rem; } }
     </style>
@@ -45,177 +62,113 @@
 <body>
 
     <aside class="sidebar">
-        <div class="mb-10 px-4">
-            <h2 class="text-xl font-extrabold text-slate-800 tracking-tight">Bidisha Dash</h2>
-            <p class="text-[11px] font-bold text-green-600 uppercase tracking-widest mt-1">Agri-Researcher</p>
+        <div class="mb-12 px-4">
+            <i class="fa-solid fa-leaf text-3xl text-green-400 mb-4"></i>
+            <h2 class="text-xl font-extrabold tracking-tight">Bidisha Dash</h2>
+            <p class="text-[10px] font-bold text-green-400 uppercase tracking-widest mt-1">Aspiring Ag-Tech Researcher</p>
         </div>
 
         <nav class="flex-grow">
             <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
             <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About Me</a>
             <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
-            <a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a>
-            <a href="#projects" class="nav-link"><i class="fa-solid fa-flask"></i> Projects</a>
-            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
-            <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+            <a href="#skills" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a>
+            <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+            <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
 
-        <div class="mt-auto px-4 pt-6 border-t border-slate-100 flex gap-4">
-            <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="text-slate-400 hover:text-green-600"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href="https://github.com/bidisha-22" target="_blank" class="text-slate-400 hover:text-green-600"><i class="fa-brands fa-github text-lg"></i></a>
+        <div class="mt-auto flex gap-4 px-4 pt-6 border-t border-white/10">
+            <a href="#" class="text-white/50 hover:text-green-400 transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+            <a href="#" class="text-white/50 hover:text-green-400 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
         </div>
     </aside>
 
     <main class="main-content">
-        
-        <section id="home" class="min-h-[60vh] flex flex-col justify-center mb-16">
-            <div class="flex items-center gap-10">
-                <div class="flex-1">
-                    <h1 class="text-6xl font-extrabold text-slate-900 mb-6" id="typewriter-name"></h1>
-                    <p class="text-xl text-slate-500 leading-relaxed max-w-2xl">
-                        I am a <span class="font-bold text-slate-800">BSc. (Hons.) Agriculture graduate</span> with a mission to advance <span class="text-green-600 font-semibold">SDG 2</span> and protect our land through integrated management and data-driven technology.
-                    </p>
-                    <div class="mt-10 flex gap-4">
-                        <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-700 transition-all">View My Work</a>
-                        <a href="#" class="border border-slate-200 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all">Download CV</a>
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="floral-top" alt="floral">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/13/53/leaf-147515_1280.png" class="floral-bottom" alt="floral">
+
+        <section id="home" class="min-h-[80vh] flex flex-col justify-center mb-16">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="flex-1 text-center lg:text-left">
+                    <p class="text-green-600 font-bold mb-2">Hello, I'm</p>
+                    <h1 class="text-6xl font-extrabold text-slate-900 mb-4">Bidisha Dash</h1>
+                    <p class="text-lg text-slate-500 font-medium mb-8">BSc. (Hons.) Agriculture Graduate focused on <span class="text-green-600">Sustainable Solutions</span> and <span class="text-green-600">Ag-Data Research</span>.</p>
+                    
+                    <div class="flex gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="bg-green-800 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-900 transition-all">View My Work</a>
+                        <a href="#" class="border-2 border-slate-200 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all">Download CV</a>
                     </div>
                 </div>
-                <div class="hidden lg:block">
-                    <img src="profile.jpeg" alt="Bidisha" class="w-64 h-64 rounded-full object-cover border-[10px] border-white shadow-xl">
+                <div class="relative">
+                    <div class="w-80 h-80 rounded-full border-[15px] border-white shadow-2xl overflow-hidden relative z-10">
+                        <img src="profile.jpeg" class="w-full h-full object-cover" alt="Bidisha">
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-50 rounded-full -z-10 opacity-50"></div>
                 </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+                <div class="icon-box"><i class="fa-solid fa-seedling"></i><p class="text-xs font-bold uppercase text-slate-400">Agriculture Student</p></div>
+                <div class="icon-box"><i class="fa-solid fa-database"></i><p class="text-xs font-bold uppercase text-slate-400">Data Enthusiast</p></div>
+                <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i><p class="text-xs font-bold uppercase text-slate-400">Lifelong Learner</p></div>
+                <div class="icon-box"><i class="fa-solid fa-lightbulb"></i><p class="text-xs font-bold uppercase text-slate-400">Problem Solver</p></div>
             </div>
         </section>
 
         <section id="education" class="mb-20">
-            <div class="flex items-center gap-3 mb-8">
-                <h3 class="text-3xl font-bold">Education</h3>
-                <i class="fa-solid fa-leaf text-green-500"></i>
-            </div>
-            
-            <div class="grid md:grid-cols-12 gap-6">
-                <div class="md:col-span-8 section-card">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h4 class="text-xl font-bold">B.Sc. (Hons.) Agriculture</h4>
-                            <p class="text-slate-500">Siksha ‘O’ Anusandhan University</p>
-                        </div>
-                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-lg font-bold">CGPA: 8.74</span>
+            <h3 class="text-3xl font-bold mb-10 flex items-center gap-2">Education <i class="fa-solid fa-leaf text-green-500 text-sm"></i></h3>
+            <div class="grid gap-6">
+                <div class="section-card flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
+                        <i class="fa-solid fa-university"></i>
                     </div>
-                    
-                    <h5 class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4">Field Experience (B.Sc. Curriculum)</h5>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="bg-slate-50 p-4 rounded-xl text-center">
-                            <i class="fa-solid fa-tractor text-green-600 mb-2"></i>
-                            <p class="text-[10px] font-bold">Internship</p>
-                            <p class="text-[9px] text-slate-500">RKVK Placement</p>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-extrabold">B.Sc. (Hons.) Agriculture</h4>
+                                <p class="text-slate-500">Siksha ‘O’ Anusandhan University</p>
+                                <p class="text-xs font-bold text-green-600 mt-1">2021 — 2025</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full font-extrabold">CGPA: 8.74</span>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-xl text-center">
-                            <i class="fa-solid fa-users text-green-600 mb-2"></i>
-                            <p class="text-[10px] font-bold">RAWE</p>
-                            <p class="text-[9px] text-slate-500">Village Attachment</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 border-t pt-6">
+                            <div class="text-sm"><p class="font-bold">Internship</p><p class="text-xs text-slate-500">RKVK mandates</p></div>
+                            <div class="text-sm"><p class="font-bold">RAWE</p><p class="text-xs text-slate-500">Village attachment</p></div>
+                            <div class="text-sm"><p class="font-bold">ELP</p><p class="text-xs text-slate-500">Practical exposure</p></div>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-xl text-center">
-                            <i class="fa-solid fa-microscope text-green-600 mb-2"></i>
-                            <p class="text-[10px] font-bold">ELP</p>
-                            <p class="text-[9px] text-slate-500">Practical Learning</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:col-span-4 section-card">
-                    <h4 class="text-lg font-bold mb-2">Higher Secondary</h4>
-                    <p class="text-sm text-slate-500 mb-4">[Your School Name]</p>
-                    <div class="flex justify-between items-center text-sm border-t pt-4">
-                        <span class="text-slate-400">Grade</span>
-                        <span class="font-bold text-slate-800">[Your Grade]</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8">Technical & Professional Skills</h3>
+            <h3 class="text-3xl font-bold mb-10">Skills <i class="fa-solid fa-leaf text-green-500 text-sm"></i></h3>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="section-card">
-                    <h4 class="text-sm font-bold uppercase text-slate-400 mb-6 tracking-widest">Technical Skills</h4>
+                    <h4 class="font-bold mb-6 text-slate-400 text-sm uppercase tracking-widest">Technical Skills</h4>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-semibold">Python</span>
-                            <div><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-empty"></span></div>
+                            <span class="font-semibold text-sm">Agronomy / Soil Science</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span></div>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-semibold">R Programming</span>
-                            <div><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-empty"></span><span class="skill-dot-empty"></span></div>
+                            <span class="font-semibold text-sm">Python / R</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-empty"></span><span class="dot dot-empty"></span></div>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-semibold">SQL</span>
-                            <div><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-filled"></span><span class="skill-dot-empty"></span><span class="skill-dot-empty"></span></div>
+                            <span class="font-semibold text-sm">Data Analysis (SQL)</span>
+                            <div><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-filled"></span><span class="dot dot-empty"></span></div>
                         </div>
                     </div>
                 </div>
-                <div class="section-card">
-                    <h4 class="text-sm font-bold uppercase text-slate-400 mb-6 tracking-widest">Core Disciplines</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-lg text-xs font-bold">Crop Protection</span>
-                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-lg text-xs font-bold">Soil Health</span>
-                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-lg text-xs font-bold">Agronomy</span>
-                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-lg text-xs font-bold">Horticulture</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8">Featured Projects</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="section-card">
-                    <h4 class="text-xl font-bold mb-2">Crop Disease Identification</h4>
-                    <p class="text-slate-500 text-sm mb-4">Developed a machine learning model to identify 17 crop diseases using Kaggle datasets.</p>
-                    <div class="flex gap-2"><span class="text-[10px] bg-slate-100 px-2 py-1 rounded">Python</span><span class="text-[10px] bg-slate-100 px-2 py-1 rounded">Teachable Machine</span></div>
-                </div>
-                <div class="section-card">
-                    <h4 class="text-xl font-bold mb-2">Crop Yield Analytics Dashboard</h4>
-                    <p class="text-slate-500 text-sm mb-4">Utilized R for statistical modeling and data visualization of yield records.</p>
-                    <div class="flex gap-2"><span class="text-[10px] bg-slate-100 px-2 py-1 rounded">R</span><span class="text-[10px] bg-slate-100 px-2 py-1 rounded">Statistics</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8">Let's Connect</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="section-card">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600"><i class="fa-solid fa-envelope"></i></div>
-                            <div><p class="text-xs text-slate-400 font-bold uppercase">Email</p><p class="text-sm font-semibold">bidisha.dash28@gmail.com</p></div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600"><i class="fa-brands fa-linkedin-in"></i></div>
-                            <div><p class="text-xs text-slate-400 font-bold uppercase">LinkedIn</p><p class="text-sm font-semibold">bidisha-dash-684aab2b0</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-card">
-                    <form action="#" class="space-y-4">
-                        <input type="text" placeholder="Your Name" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-green-400 outline-none">
-                        <textarea rows="4" placeholder="Your Message" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"></textarea>
-                        <button class="w-full bg-green-700 text-white font-bold py-3 rounded-xl hover:bg-green-800 transition-all">Send Message</button>
-                    </form>
+                <div class="section-card flex flex-col justify-center text-center bg-green-50/30 border-green-100">
+                    <p class="italic text-slate-600">"Applying data-driven insights to sustainable farming practices."</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const nameElement = document.getElementById('typewriter-name');
-            const nameText = "Bidisha Dash";
-            let index = 0;
-            function type() { if (index < nameText.length) { nameElement.innerHTML += nameText.charAt(index); index++; setTimeout(type, 150); } }
-            type();
-        });
-    </script>
 </body>
 </html>
