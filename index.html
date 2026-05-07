@@ -510,19 +510,20 @@
         
         <div class="botanical-bottom"></div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-      var typed = new Typed('#typing-effect', {
-        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-        typeSpeed: 100,
-        loop: false, // This stops the "typing again and again"
-        showCursor: true,
-        cursorChar: '|',
-        onComplete: (self) => {
-          // This ensures the cursor keeps blinking indefinitely after typing finishes
-          self.cursor.classList.add('typed-cursor--blink');
-        }
-      });
-    </script>
+  var typed = new Typed('#typing-effect', {
+    strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
+    typeSpeed: 100,
+    loop: false, 
+    backSpeed: 0, // Ensures it doesn't try to backspace
+    smartBackspace: false, // Prevents partial erasing
+    showCursor: true,
+    cursorChar: '|',
+    onComplete: (self) => {
+      // This keeps the cursor blinking after the name is fully typed
+      self.cursor.classList.add('typed-cursor--blink');
+    }
+  });
+</script>
 </body>
 </html>
