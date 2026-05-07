@@ -9,148 +9,85 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
-        :root {
-            --primary-green: #4f6f52;
-            --light-bg: #fdfdfb;
-            --sidebar-bg: #f9fbf7;
-            --card-border: #e9ede4;
-        }
-
         body { 
-            background-color: var(--light-bg); 
-            color: #333; 
+            background-color: #fdfdfb; 
+            color: #1a1a1a; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             scroll-behavior: smooth;
         }
 
-        /* Sidebar Styling - Exactly like the image */
+        /* Sidebar Styling */
         .sidebar {
-            width: 240px; 
-            background-color: var(--sidebar-bg); 
-            color: #444;
-            position: fixed; 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column;
-            padding: 2rem 1rem; 
-            z-index: 50;
-            border-right: 1px solid var(--card-border);
+            width: 260px; background-color: #f9fbf7; 
+            position: fixed; height: 100vh; display: flex; flex-direction: column;
+            padding: 2.5rem 1.2rem; z-index: 50; border-right: 1px solid #eef2eb;
         }
 
         .nav-link {
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            padding: 10px 16px;
-            border-radius: 8px; 
-            color: #666; 
-            font-weight: 500; 
-            font-size: 0.85rem;
-            transition: all 0.2s ease; 
-            margin-bottom: 2px;
+            display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+            border-radius: 10px; color: #64748b; font-weight: 500; font-size: 0.9rem;
+            transition: all 0.2s ease; margin-bottom: 2px;
         }
 
-        .nav-link:hover, .nav-link.active { 
-            background-color: #f1f5eb; 
-            color: var(--primary-green); 
+        .nav-link:hover, .nav-link.active { background-color: #f1f5eb; color: #166534; }
+        .nav-link.active { font-weight: 700; }
+
+        /* Main Content */
+        .main-content { margin-left: 260px; position: relative; min-height: 100vh; }
+
+        /* Decorative Leaf Accents */
+        .leaf-bg-top { position: absolute; top: 0; right: 0; width: 250px; opacity: 0.4; z-index: 1; }
+        .leaf-bg-bottom { position: fixed; bottom: 0; right: 0; width: 250px; opacity: 0.4; z-index: 1; pointer-events: none; }
+
+        .content-wrapper { position: relative; z-index: 10; max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+
+        /* Hero Image - The "Aarushi" Style Circle */
+        .profile-container {
+            position: relative; width: 340px; height: 340px;
+        }
+        .profile-image {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+            border: 12px solid #ffffff; box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .leaf-frame {
+            position: absolute; top: -20px; left: -20px; width: 110%; height: 110%;
+            z-index: -1; transform: rotate(-10deg);
         }
 
-        .nav-link i { font-size: 1rem; width: 20px; }
+        /* Feature Cards */
+        .feature-card {
+            background: white; border: 1px solid #f1f5f2; border-radius: 16px;
+            padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-5px); border-color: #4ade80; }
+        .feature-card i { font-size: 1.4rem; color: #166534; margin-bottom: 0.5rem; display: block; }
+        .feature-card p { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        /* Main Content Area */
-        .main-content { margin-left: 240px; padding: 0; }
-
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* Stats Bar */
+        .stats-bar {
+            background-color: #f4f7f0; border-radius: 20px; padding: 1.5rem;
+            display: grid; grid-template-cols: repeat(4, 1fr); margin-top: 3rem;
         }
-
-        /* Information Cards */
-        .info-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--card-border);
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .info-card:hover { transform: translateY(-5px); }
-
-        /* Profile Image Container */
-        .profile-wrapper {
-            position: relative;
-            width: 320px;
-            height: 320px;
-        }
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-cover: cover;
-            border: 8px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        .leaf-decor {
-            position: absolute;
-            z-index: -1;
-            width: 120%;
-            top: -10%;
-            left: -10%;
-            opacity: 0.6;
-        }
-
-        /* Stats Section */
-        .stat-box {
-            text-align: center;
-            padding: 1rem;
-        }
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #333;
-            display: block;
-        }
-        .stat-label {
-            font-size: 0.75rem;
-            color: #777;
-            text-transform: capitalize;
-        }
+        .stat-item { text-align: center; }
+        .stat-val { font-size: 1.5rem; font-weight: 800; color: #1a1a1a; display: block; }
+        .stat-label { font-size: 0.75rem; color: #64748b; font-weight: 500; }
 
         /* Buttons */
-        .btn-primary {
-            background-color: var(--primary-green);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .btn-secondary {
-            border: 1px solid #ddd;
-            color: #555;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
+        .btn-filled { background-color: #436850; color: white; padding: 12px 28px; border-radius: 12px; font-weight: 700; transition: 0.2s; }
+        .btn-outline { border: 1px solid #e2e8f0; color: #475569; padding: 12px 28px; border-radius: 12px; font-weight: 700; transition: 0.2s; }
+        .btn-filled:hover { background-color: #12372a; }
 
-        /* Dot Ratings */
-        .skill-dot { height: 8px; width: 8px; border-radius: 50%; display: inline-block; margin-left: 3px; }
-        .dot-fill { background-color: var(--primary-green); }
-        .dot-empty { background-color: #e5e7eb; }
-
-        @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; } }
+        @media (max-width: 1024px) { .sidebar { display: none; } .main-content { margin-left: 0; } }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="mb-10 px-4">
-            <i class="fa-solid fa-leaf text-2xl text-green-700 mb-2"></i>
-            <h2 class="text-lg font-bold text-slate-800 leading-tight">Bidisha Dash</h2>
-            <p class="text-[10px] text-slate-400 uppercase tracking-widest">Aspiring Ag-Tech Researcher</p>
+        <div class="mb-12 px-4">
+            <div class="text-green-700 text-3xl mb-4"><i class="fa-solid fa-leaf"></i></div>
+            <h2 class="text-xl font-extrabold text-slate-800 tracking-tight">Bidisha Dash</h2>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Aspiring Ag-Tech Researcher</p>
         </div>
 
         <nav class="flex-grow">
@@ -159,125 +96,88 @@
             <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
             <a href="#skills" class="nav-link"><i class="fa-solid fa-sliders"></i> Skills</a>
             <a href="#projects" class="nav-link"><i class="fa-solid fa-layer-group"></i> Projects</a>
-            <a href="#publications" class="nav-link"><i class="fa-solid fa-book-open"></i> Publications</a>
+            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
             <a href="#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i> Certifications</a>
-            <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+            <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
 
-        <div class="flex gap-4 px-4 pt-6 mt-auto">
-            <a href="#" class="text-slate-400 hover:text-green-700"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-700"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="text-slate-400 hover:text-green-700"><i class="fa-solid fa-envelope"></i></a>
+        <div class="mt-auto flex gap-5 px-4 pt-6 border-t border-slate-100">
+            <a href="#" class="text-slate-400 hover:text-green-700 transition-colors"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a href="#" class="text-slate-400 hover:text-green-700 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="#" class="text-slate-400 hover:text-green-700 transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
         </div>
     </aside>
 
     <main class="main-content">
-        
-        <section id="home" class="section-container min-h-screen flex flex-col justify-center">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="flex-1">
-                    <p class="text-green-700 font-semibold mb-2">Hello, I'm</p>
-                    <h1 class="text-5xl font-extrabold text-slate-900 mb-4">Bidisha Dash</h1>
-                    <p class="text-slate-600 font-medium mb-8 leading-relaxed">
-                        Passionate about sustainable agriculture,<br>
-                        data-driven solutions and rural development.
-                    </p>
-                    <div class="flex gap-4">
-                        <button class="btn-primary">View My Work</button>
-                        <button class="btn-secondary">Download CV</button>
+        <img src="https://i.ibb.co/L8f8VdZ/leaf-top.png" class="leaf-bg-top" alt="">
+        <img src="https://i.ibb.co/L8f8VdZ/leaf-top.png" class="leaf-bg-bottom" style="transform: rotate(180deg);" alt="">
+
+        <div class="content-wrapper">
+            <section id="home" class="min-h-[85vh] flex flex-col justify-center">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="flex-1 text-center lg:text-left">
+                        <p class="text-green-600 font-bold mb-3">Hello, I'm</p>
+                        <h1 class="text-6xl font-extrabold text-slate-900 mb-6">Bidisha Dash</h1>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed mb-10">
+                            Passionate about sustainable agriculture,<br>
+                            data-driven solutions and rural development.
+                        </p>
+                        
+                        <div class="flex gap-4 justify-center lg:justify-start">
+                            <button class="btn-filled">View My Work</button>
+                            <button class="btn-outline">Download CV</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-container">
+                        <img src="profile.jpg" alt="Bidisha Dash" class="profile-image">
+                        <div class="leaf-frame">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#f0f4ed" d="M42.7,-74.1C55.9,-68.1,67.6,-58.5,75.9,-46.3C84.2,-34.1,89.1,-19.3,88.7,-4.6C88.3,10.1,82.5,24.7,73.8,37.5C65.1,50.3,53.4,61.4,39.9,68.9C26.3,76.4,11,80.3,-4.2,87.6C-19.5,94.9,-34.7,105.7,-47.2,101.4C-59.7,97.1,-69.5,77.7,-76.3,60.8C-83.1,43.9,-86.9,29.5,-88.7,14.7C-90.5,-0.1,-90.4,-15.3,-84.9,-28.6C-79.5,-41.9,-68.7,-53.3,-56.3,-60.1C-43.9,-66.9,-29.9,-69.1,-16.1,-75.4C-2.2,-81.7,11.5,-92,26.5,-90.8C41.5,-89.6,57.7,-76.9,42.7,-74.1Z" transform="translate(100 100)" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
-                <div class="profile-wrapper">
-                    <img src="https://via.placeholder.com/400" alt="Bidisha Dash" class="profile-img">
-                    <svg class="leaf-decor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#E8F1E6" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.4,41.9C63.6,54.7,51.7,65.9,38,72.6C24.3,79.3,8.7,81.6,-6.3,79.3C-21.3,77,-35.7,70.1,-48.4,60.8C-61.1,51.5,-72.1,39.9,-77.8,26.2C-83.5,12.5,-83.8,-3.3,-79.9,-17.8C-76,-32.3,-67.9,-45.5,-56.3,-53.8C-44.7,-62.1,-29.6,-65.4,-15.1,-71.4C-0.6,-77.4,14.7,-86.1,30.6,-83.7C46.5,-81.3,63,-67.7,44.7,-76.4Z" transform="translate(100 100)" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-                <div class="info-card">
-                    <i class="fa-solid fa-seedling text-green-800 mb-2"></i>
-                    <p class="text-[10px] font-bold uppercase text-slate-400">Agriculture Student</p>
-                </div>
-                <div class="info-card">
-                    <i class="fa-solid fa-chart-line text-green-800 mb-2"></i>
-                    <p class="text-[10px] font-bold uppercase text-slate-400">Data Enthusiast</p>
-                </div>
-                <div class="info-card">
-                    <i class="fa-solid fa-graduation-cap text-green-800 mb-2"></i>
-                    <p class="text-[10px] font-bold uppercase text-slate-400">Lifelong Learner</p>
-                </div>
-                <div class="info-card">
-                    <i class="fa-solid fa-brain text-green-800 mb-2"></i>
-                    <p class="text-[10px] font-bold uppercase text-slate-400">Problem Solver</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-4 gap-4 mt-12 bg-[#f4f7f0] rounded-2xl p-6">
-                <div class="stat-box">
-                    <span class="stat-number">3+</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Certifications</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">2+</span>
-                    <span class="stat-label">Internships</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">1+</span>
-                    <span class="stat-label">Research Work</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section-container bg-white">
-            <h3 class="text-2xl font-bold mb-8">About Me <i class="fa-solid fa-leaf text-green-600 text-xs"></i></h3>
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="flex-1 text-slate-600 leading-relaxed text-sm">
-                    <p class="mb-4">I am a B.Sc. (Hons.) Agriculture student with a deep interest in agronomy, data analysis and sustainable farming practices. I enjoy learning new skills and applying them to solve real-world problems.</p>
-                    <p>My goal is to contribute to the agriculture sector through research, innovation and technology.</p>
-                </div>
-                <div class="w-full md:w-1/3 grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i class="fa-solid fa-university text-green-800 text-xs mb-2"></i>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">University</p>
-                        <p class="text-[11px] font-bold">SOA University</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-seedling"></i>
+                        <p>Agriculture Student</p>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i class="fa-solid fa-location-dot text-green-800 text-xs mb-2"></i>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">Location</p>
-                        <p class="text-[11px] font-bold">Odisha, India</p>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <p>Data Enthusiast</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <p>Lifelong Learner</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <p>Problem Solver</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-val">3+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">5+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">2+</span>
+                        <span class="stat-label">Internships</span>
+                    </div>
+                    <div class="stat-item border-none">
+                        <span class="stat-val">1+</span>
+                        <span class="stat-label">Research Work</span>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-
-    <script>
-        // Simple scroll spy for active link
-        window.addEventListener('scroll', () => {
-            let current = "";
-            const sections = document.querySelectorAll("section");
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            document.querySelectorAll(".nav-link").forEach((a) => {
-                a.classList.remove("active");
-                if (a.getAttribute("href").includes(current)) {
-                    a.classList.add("active");
-                }
-            });
-        });
-    </script>
 </body>
 </html>
