@@ -157,7 +157,8 @@
             <section id="home" class="min-h-screen flex flex-col justify-center py-20">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
                     <div class="flex-1 text-center lg:text-left">
-                <div class="mb-8"> <h1 class="text-6xl font-serif font-bold mb-2">
+                <div class="mb-8"> 
+    <h1 class="text-7xl font-serif font-bold mb-2 leading-tight min-h-[2.2em] text-[#6D8B5A]">
         <span id="typing-effect"></span>
     </h1>
 
@@ -489,37 +490,37 @@
     </main>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
-    // 1. TYPING EFFECT FOR THE NAME
-    var typedName = new Typed('#typing-effect', {
-        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-        typeSpeed: 100,
-        loop: false,
-        showCursor: true,
-        cursorChar: '|',
-        onComplete: (self) => {
-            self.cursor.classList.add('typed-cursor--blink');
-            // Start the mission typing AFTER the name is finished
-            startMissionTyping(); 
-        }
-    });
+   // 1. TYPING EFFECT FOR THE NAME (Two Lines)
+var typedName = new Typed('#typing-effect', {
+    // Adding <br> forces "Dash" to the second line
+    strings: ['<span style="color: #6D8B5A;">Bidisha</span><br><span style="color: #1F1F1F;">Dash</span>'],
+    typeSpeed: 100,
+    loop: false,
+    showCursor: true,
+    cursorChar: '|',
+    onComplete: (self) => {
+        self.cursor.classList.add('typed-cursor--blink');
+        startMissionTyping(); 
+    }
+});
 
-    // 2. TYPING EFFECT FOR THE MISSION SENTENCES
-    function startMissionTyping() {
-        var typedMission = new Typed('#typewriter-mission', {
-            strings: [
-                'Aspiring sustainable agriculture researcher', 
-                'Agricultural data science enthusiast', 
-                'Integrated disease management advocate',
-                'Food security champion'
-            ],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 2000,
-            startDelay: 500,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        });
+// 2. TYPING EFFECT FOR THE MISSION SENTENCES
+function startMissionTyping() {
+    var typedMission = new Typed('#typewriter-mission', {
+        strings: [
+            'Aspiring sustainable agriculture researcher', 
+            'Agricultural data science enthusiast', 
+            'Integrated disease management advocate',
+            'Food security champion'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        startDelay: 500,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+    });
     }
 </script>
 </body>
