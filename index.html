@@ -160,18 +160,7 @@
                         <h1 class="text-7xl font-bold mb-6 leading-tight min-h-[1.2em] text-[#6D8B5A]">
                     <span id="typing-effect"></span>
                     </h1>
-                    
-                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-                    <script>
-                      var typed = new Typed('#typing-effect', {
-                        strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
-                        typeSpeed: 100,
-                        backSpeed: 50,
-                        loop: true,
-                        showCursor: true,
-                        cursorChar: '|'
-                      });
-                    </script>
+                  
                         <p class="text-xl text-[#6B6B6B] font-medium leading-relaxed mb-12 max-w-lg">
                             Passionate about sustainable agriculture, data-driven solutions and rural development.
                         </p>
@@ -512,22 +501,22 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    <script>
-      var typed = new Typed('#typing-effect', {
-        strings: ['Bidisha <span class="text-[#1F1F1F]">Dash</span>'],
-        typeSpeed: 100,
-        loop: false, 
-        fadeOut: false,
-        backSpeed: 0,
-        backDelay: 9999999,
-        showCursor: true,
-        cursorChar: '|',
-        contentType: 'html',
-        onComplete: (self) => {
-          self.cursor.classList.add('typed-cursor--blink');
-        }
-      });
-    </script>
-</body>
+<script>
+  var typed = new Typed('#typing-effect', {
+    // We add the green color back to "Bidisha" here
+    strings: ['<span style="color: #6D8B5A;">Bidisha</span> <span style="color: #1F1F1F;">Dash</span>'],
+    typeSpeed: 100,
+    loop: false, 
+    fadeOut: false,
+    backSpeed: 0,
+    backDelay: 9999999,
+    showCursor: true,
+    cursorChar: '|',
+    contentType: 'html',
+    onComplete: (self) => {
+      self.cursor.classList.add('typed-cursor--blink');
+    }
+  });
+</script>
 </body>
 </html>
