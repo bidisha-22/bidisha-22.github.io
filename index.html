@@ -64,6 +64,14 @@
 
         .typed-cursor { color: #6D8B5A; font-size: 4rem; }
         #typewriter-mission + .typed-cursor { font-size: 1.5rem; vertical-align: middle; }
+        @keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+svg path {
+  animation: dash 5s linear infinite;
+}
     </style>
 </head>
 <body>
@@ -176,6 +184,84 @@
                 <span class="text-3xl font-bold text-white">1</span>
                 <p class="text-[10px] font-bold text-white/80 uppercase mt-1">Core Mission</p>
             </div>
+        </div>
+    </div>
+</section>
+<section id="education" class="py-24 relative overflow-hidden">
+    <div class="mb-16">
+        <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-4">Educational Journey <span class="text-[#6D8B5A]">🎓</span></h2>
+        <div class="w-20 h-1 bg-[#6D8B5A] rounded-full"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto">
+        
+        <div class="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" style="z-index: 0;">
+            <svg width="100%" height="100%" viewBox="0 0 400 1200" fill="none" preserveAspectRatio="none">
+                <path d="M200,0 Q350,150 200,300 T200,600 T200,900 T200,1200" stroke="#6D8B5A" stroke-width="3" stroke-dasharray="8 8" opacity="0.3"/>
+            </svg>
+        </div>
+
+        <div class="md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-[#6D8B5A]/20"></div>
+
+        <div class="space-y-24 relative z-10">
+
+            <div class="flex flex-col md:flex-row items-center md:justify-start w-full">
+                <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="bg-white p-6 rounded-[24px] border border-[#E2E5DA] shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-[#6D8B5A] font-bold text-sm uppercase tracking-widest">2019</span>
+                        <h3 class="text-xl font-bold text-[#1F1F1F] mt-1">Secondary Examination</h3>
+                        <p class="text-[#6B6B6B] mt-2 text-sm italic">West Bengal Board of Secondary Education</p>
+                    </div>
+                </div>
+                <div class="w-10 h-10 bg-[#12372A] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 order-1 md:order-2 mb-4 md:mb-0">
+                    <i class="fa-solid fa-school text-white text-xs"></i>
+                </div>
+                <div class="md:w-5/12 order-3"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center md:justify-end w-full">
+                <div class="md:w-5/12 order-3"></div>
+                <div class="w-10 h-10 bg-[#6D8B5A] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 order-1 mb-4 md:mb-0">
+                    <i class="fa-solid fa-graduation-cap text-white text-xs"></i>
+                </div>
+                <div class="md:w-5/12 pl-0 md:pl-12 order-2">
+                    <div class="bg-white p-6 rounded-[24px] border border-[#E2E5DA] shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-[#6D8B5A] font-bold text-sm uppercase tracking-widest">2021</span>
+                        <h3 class="text-xl font-bold text-[#1F1F1F] mt-1">Higher Secondary (Science)</h3>
+                        <p class="text-[#6B6B6B] mt-2 text-sm italic">W.B.C.H.S.E</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center md:justify-start w-full">
+                <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="bg-[#EEF1E7] p-6 rounded-[24px] border border-[#6D8B5A]/20 shadow-sm">
+                        <span class="text-[#6D8B5A] font-bold text-sm uppercase tracking-widest">2021 - 2025</span>
+                        <h3 class="text-xl font-bold text-[#1F1F1F] mt-1">B.Sc. (Hons.) Agriculture</h3>
+                        <p class="text-[#12372A] font-semibold text-sm">Siksha ‘O’ Anusandhan University</p>
+                        <p class="text-[#6B6B6B] mt-2 text-xs">Major: Agriculture | RAWE (Rural Agricultural Work Experience)</p>
+                    </div>
+                </div>
+                <div class="w-12 h-12 bg-[#12372A] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 order-1 md:order-2 mb-4 md:mb-0">
+                    <i class="fa-solid fa-leaf text-white"></i>
+                </div>
+                <div class="md:w-5/12 order-3"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center md:justify-end w-full">
+                <div class="md:w-5/12 order-3"></div>
+                <div class="w-10 h-10 bg-[#6D8B5A] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 order-1 mb-4 md:mb-0">
+                    <i class="fa-solid fa-robot text-white text-xs"></i>
+                </div>
+                <div class="md:w-5/12 pl-0 md:pl-12 order-2">
+                    <div class="bg-white p-6 rounded-[24px] border border-[#E2E5DA] shadow-sm">
+                        <span class="text-[#6D8B5A] font-bold text-sm uppercase tracking-widest">2026</span>
+                        <h3 class="text-lg font-bold text-[#1F1F1F] mt-1">AI in Agriculture (Cohort 2)</h3>
+                        <p class="text-[#6B6B6B] mt-2 text-sm italic">ICAR NAARM - Massive Open Online Course</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
