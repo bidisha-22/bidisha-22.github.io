@@ -25,12 +25,11 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
 
+        /* Sidebar Styling */
         .sidebar {
-            width: 260px; 
+            width: 280px; 
             background-color: var(--sidebar-deep-green); 
             position: fixed; 
             height: 100vh; 
@@ -42,88 +41,29 @@
         }
 
         .nav-link {
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            padding: 12px 16px;
-            border-radius: 12px; 
-            color: var(--nav-text-light); 
-            opacity: 0.7;
-            font-weight: 500; 
-            font-size: 0.95rem;
-            transition: all 0.3s ease; 
-            margin-bottom: 4px;
+            display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+            border-radius: 12px; color: var(--nav-text-light); opacity: 0.7;
+            font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; margin-bottom: 4px;
         }
 
-        .nav-link:hover, .nav-link.active { 
-            background-color: rgba(255,255,255,0.1); 
-            color: white; 
-            opacity: 1;
-        }
-
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.1); color: white; opacity: 1; }
         .nav-link.active { font-weight: 700; background-color: rgba(255,255,255,0.15); }
 
-        .main-content { margin-left: 260px; position: relative; }
+        /* Main Content Alignment */
+        .main-content { margin-left: 280px; min-height: 100vh; }
+        .content-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 4rem; position: relative; z-index: 10; }
 
-        .botanical-top { position: absolute; top: 0; right: 0; width: 400px; opacity: 0.15; pointer-events: none; z-index: 1; }
-        .botanical-bottom { position: fixed; bottom: -20px; left: 240px; width: 300px; opacity: 0.1; pointer-events: none; z-index: 1; }
-
-        .content-wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
-
-        .profile-container { position: relative; width: 380px; height: 380px; }
+        .btn-green { background-color: var(--primary-green); color: white; padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
+        .btn-white { background-color: white; border: 1px solid var(--border-color); color: var(--text-dark); padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
+        
         .profile-img {
             width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
             border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.05);
             position: relative; z-index: 2;
         }
-        .leaf-frame-svg {
-            position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
-            fill: #EEF1E7; z-index: 1; opacity: 0.7;
-        }
 
-        .card-modern {
-            background: white; border: 1px solid var(--border-color); border-radius: 24px;
-            padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
-        }
-        .card-modern:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
-        .card-modern i { color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1rem; display: block; }
-        .card-modern p { font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-
-        .stats-grid {
-            background-color: #EEF1E7; border-radius: 24px; padding: 2.5rem;
-            display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 4rem;
-        }
-        .stat-line { border-right: 1px solid #D8DCCF; text-align: center; }
-        .stat-line:last-child { border-right: none; }
-
-        .btn-green { background-color: var(--primary-green); color: white; padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
-        .btn-white { background-color: white; border: 1px solid var(--border-color); color: var(--text-dark); padding: 14px 36px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
-        .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
-
-        @media (max-width: 1024px) { .sidebar { display: none; } .main-content { margin-left: 0; } }
-        /* Customizing the typing cursor to match your theme */
-        .typed-cursor {
-            color: #6D8B5A;
-            font-size: 4rem;
-            opacity: 1;
-            animation: typedjsBlink 0.7s infinite;
-        }
-        
-        @keyframes typedjsBlink {
-            50% { opacity: 0.0; }
-        }
-        
-        #typing-effect {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Specifically shrink the cursor for the mission sentences */
-        #typewriter-mission + .typed-cursor {
-            font-size: 1.5rem; /* Adjust this number until it looks right to you */
-            vertical-align: middle;
-            margin-left: 4px;
-        }
-       
+        .typed-cursor { color: #6D8B5A; font-size: 4rem; }
+        #typewriter-mission + .typed-cursor { font-size: 1.5rem; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -141,314 +81,115 @@
             <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
             <a href="#skills" class="nav-link"><i class="fa-solid fa-seedling"></i> Skills</a>
             <a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open"></i> Projects</a>
-            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
-            <a href="#certifications" class="nav-link"><i class="fa-solid fa-award"></i> Certifications</a>
             <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </nav>
 
-    <section id="skills" class="relative py-20 border-t">
-        </section>
-    
-</div>
         <div class="mt-auto flex gap-6 px-4 pt-8 border-t border-white/10">
-            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-github text-lg"></i></a>
-            <a href="#" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-solid fa-envelope text-lg"></i></a>
+            <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a href="https://github.com/bidisha-22" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="mailto:bidisha.dash28@gmail.com" class="text-[#EEF1E7] opacity-60 hover:opacity-100"><i class="fa-solid fa-envelope text-lg"></i></a>
         </div>
     </aside>
 
     <main class="main-content">
-        <div class="botanical-top">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#6D8B5A" d="M38.1,-63.4C49.5,-57.1,59,-47.1,66.1,-35.3C73.1,-23.5,77.7,-9.9,76.6,3.5C75.4,16.9,68.5,30.1,59.3,40.8C50.1,51.5,38.6,59.7,25.8,64.9C13,70.1,-0.8,72.4,-15.5,70.8C-30.3,69.2,-46,63.7,-57.8,53.4C-69.6,43.1,-77.4,27.9,-79.8,11.9C-82.2,-4,-79.2,-20.7,-71.4,-34.5C-63.6,-48.3,-51,-59.1,-37.5,-64.5C-24,-69.8,-9.6,-69.6,2.4,-64.1C14.3,-58.5,26.7,-69.7,38.1,-63.4Z" transform="translate(100 100)" />
-            </svg>
-        </div>
-
         <div class="content-wrapper">
+            
             <section id="home" class="min-h-screen flex flex-col justify-center py-20">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
-                    <div class="flex-1 text-center lg:text-left">
-                <div class="mb-8"> 
-    <h1 class="text-7xl font-serif font-bold mb-2 leading-tight min-h-[2.2em] text-[#6D8B5A]">
-        <span id="typing-effect"></span>
-    </h1>
-
-    <h4 class="text-2xl md:text-3xl text-[#6B6B6B] font-medium leading-tight mt-0 min-h-[1.5em]">
-        <span id="typewriter-mission"></span>
-    </h4>
-</div>
-            
-                <div class="flex gap-5 justify-center lg:justify-start">
-                    <button class="btn-green">View My Work</button>
-                    <button class="btn-white">Download CV</button>
-                </div>
-            </div>
-
-                    <div class="profile-container">
-                        <svg class="leaf-frame-svg" viewBox="0 0 200 200">
-                            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.4,41.9C63.6,54.7,51.7,65.9,38,72.6C24.3,79.3,8.7,81.6,-6.3,79.3C-21.3,77,-35.7,70.1,-48.4,60.8C-61.1,51.5,-72.1,39.9,-77.8,26.2C-83.5,12.5,-83.8,-3.3,-79.9,-17.8C-76,-32.3,-67.9,-45.5,-56.3,-53.8C-44.7,-62.1,-29.6,-65.4,-15.1,-71.4C-0.6,-77.4,14.7,-86.1,30.6,-83.7C46.5,-81.3,63,-67.7,44.7,-76.4Z" transform="translate(100 100)" />
-                        </svg>
+                    <div class="flex-1">
+                        <h1 class="text-7xl font-serif font-bold mb-4 leading-tight min-h-[2.2em] text-[#6D8B5A]">
+                            <span id="typing-effect"></span>
+                        </h1>
+                        <h4 class="text-2xl text-[#6B6B6B] font-medium min-h-[1.5em] mb-8">
+                            <span id="typewriter-mission"></span>
+                        </h4>
+                        <div class="flex gap-5">
+                            <button class="btn-green">View My Work</button>
+                            <button class="btn-white">Download CV</button>
+                        </div>
+                    </div>
+                    <div class="relative">
                         <img src="profile.jpeg" alt="Bidisha Dash" class="profile-img">
                     </div>
                 </div>
             </section>
+
             <section id="about" class="py-20 border-t border-[#E2E5DA]/50">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-4">About Me <span class="text-[#6D8B5A]">🌱</span></h2>
-                    <div class="w-20 h-1 bg-[#6D8B5A] rounded-full"></div>
-                </div>
-            
-                <div class="space-y-12">
-                    <div class="flex flex-col md:flex-row gap-12 items-start">
-                        <div class="flex-1 space-y-6 text-[#6B6B6B] leading-relaxed text-lg">
-                            <p>
-                                I am a <span class="text-[#1F1F1F] font-semibold">BSc. Hons. Agriculture graduate</span> with a clear and purposeful mission to contribute to a world where no one goes hungry and where the land that feeds us is protected for generations to come. 
-                            </p>
-                            <p>
-                                Everything I do is oriented toward two of the world's most important frameworks for global agricultural transformation: the <span class="text-[#6D8B5A] font-bold">United Nations SDG 2</span> and the <span class="text-[#6D8B5A] font-bold">FAO Strategic Framework 2022–2031</span>.
-                            </p>
-                        </div>
-                    </div>
-            
-                    <div class="bg-[#EEF1E7] border border-[#E2E5DA] p-10 rounded-[40px] text-center max-w-4xl mx-auto shadow-inner group transition-all hover:border-[#6D8B5A]/30">
-                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-[0.2em] mb-4">My mission in one sentence</p>
-                        <p class="font-serif text-2xl font-bold text-[#1F1F1F] leading-snug group-hover:text-[#6D8B5A] transition-colors">
-                            "To apply integrated management practices and data-driven technology to protect crops from pests and diseases, and to restore and sustain soil health — advancing both Better Production and a Better Environment toward a food-secure and ecologically resilient world."
-                        </p>
-                    </div>
-            
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-[#6B6B6B] leading-relaxed">
-                        <div class="space-y-4">
-                            <p>
-                                My academic foundation spans <span class="text-[#1F1F1F] font-medium">Agronomy, Horticulture, Soil Science, Plant Pathology, Entomology, Plant Breeding, Agricultural Engineering, and Agricultural Extension</span>, giving me the depth to understand these problems from the ground up. I am currently aspiring toward a Master's degree to build the specialized research expertise needed to contribute at an institutional scale.
-                            </p>
-                        </div>
-                        <div class="space-y-4">
-                            <p>
-                                I’ve realized that when agricultural science pairs with technology, problems that once took seasons to detect can be caught in hours. By upskilling in <span class="text-[#1F1F1F] font-medium">Python, R, SQL, Machine Learning, Deep Learning, and Bioinformatics</span>, I am building the capacity to design intelligent systems that extend the reach of good practice beyond traditional limits.
-                            </p>
-                        </div>
-                    </div>
-            
-                    <div class="bg-white border border-[#E2E5DA] p-8 rounded-[32px] text-center max-w-3xl mx-auto shadow-sm">
-                        <p class="text-[#6B6B6B] italic text-lg">
-                            "Every project in this portfolio is a step toward that goal—rooted in science, powered by data, and oriented toward a food-secure and ecologically resilient world."
-                        </p>
-                    </div>
-            
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                        <div class="p-6 bg-white border border-[#E2E5DA] rounded-2xl text-center transition-transform hover:-translate-y-1">
-                            <span class="text-3xl font-bold text-[#1F1F1F]">8+</span>
-                            <p class="text-[10px] font-bold text-[#888] uppercase mt-1">Disciplines</p>
-                        </div>
-                        <div class="p-6 bg-white border border-[#E2E5DA] rounded-2xl text-center transition-transform hover:-translate-y-1">
-                            <span class="text-3xl font-bold text-[#1F1F1F]">2</span>
-                            <p class="text-[10px] font-bold text-[#888] uppercase mt-1">Focus Pillars</p>
-                        </div>
-                        <div class="p-6 bg-white border border-[#E2E5DA] rounded-2xl text-center transition-transform hover:-translate-y-1">
-                            <span class="text-3xl font-bold text-[#1F1F1F]">2</span>
-                            <p class="text-[10px] font-bold text-[#888] uppercase mt-1">Global Frameworks</p>
-                        </div>
-                        <div class="p-6 bg-[#6D8B5A] border border-[#6D8B5A] rounded-2xl text-center transition-transform hover:-translate-y-1 shadow-lg shadow-[#6D8B5A]/20">
-                            <span class="text-3xl font-bold text-white">1</span>
-                            <p class="text-[10px] font-bold text-white/80 uppercase mt-1">Core Mission</p>
-                        </div>
-                    </div>
+                <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-8">About Me <span class="text-[#6D8B5A]">🌱</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#6B6B6B] text-lg leading-relaxed">
+                    <p>I am a <span class="text-[#1F1F1F] font-semibold">BSc. Hons. Agriculture graduate</span> with a mission to contribute to a world where the land that feeds us is protected for generations to come through integrated management and data science.</p>
+                    <p>By upskilling in <span class="text-[#1F1F1F] font-medium">Python, R, SQL, and Machine Learning</span>, I am building the capacity to design intelligent systems that restore and sustain soil health.</p>
                 </div>
             </section>
-            
-            <div class="relative flex items-center md:justify-between flex-row-reverse group">
-                <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#6D8B5A] rounded
-<section id="skills" class="relative py-20 border-t border-[#E2E5DA]/50">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-        
-        <div class="md:col-span-4">
-            <div class="sticky top-24">
-                <div class="inline-block p-3 bg-[#f3f4ee] rounded-2xl mb-4">
-                    <img src="path/to/leaf-icon.png" alt="Leaf Icon" class="w-8 h-8">
-                </div>
-                <h2 class="text-5xl font-serif mb-6 text-[#1A1A1A]">My Skills</h2>
-                <p class="text-xl text-[#4A4A4A] italic leading-relaxed font-serif">
-                    A blend of agricultural knowledge and data-driven technologies to build sustainable solutions.
-                </p>
-            </div>
-        </div>
 
-        <div class="md:col-span-8 space-y-8">
-            
-            <div class="bg-white p-8 rounded-3xl border border-[#E2E5DA] shadow-sm">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="p-2 bg-[#f3f4ee] rounded-lg">
-                        <i class="fas fa-code text-[#4B6343]"></i>
+            <section id="skills" class="py-20 border-t border-[#E2E5DA]/50">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div class="md:col-span-4">
+                        <div class="sticky top-10">
+                            <h2 class="text-5xl font-serif mb-6 text-[#1A1A1A]">My Skills</h2>
+                            <p class="text-xl text-[#4A4A4A] italic font-serif">A blend of agricultural knowledge and data-driven technologies.</p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold">Programming Libraries</h3>
-                </div>
-                <ul class="grid grid-cols-2 gap-4 text-[#4A4A4A]">
-                    <li>• Pandas</li>
-                    <li>• NumPy</li>
-                    <li>• Matplotlib</li>
-                    <li>• Seaborn</li>
-                    <li>• Scikit-learn</li>
-                    <li>• TensorFlow</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-8 rounded-3xl border border-[#E2E5DA] shadow-sm">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="p-2 bg-[#f3f4ee] rounded-lg">
-                        <i class="fas fa-lightbulb text-[#4B6343]"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold">Core Competencies</h3>
-                </div>
-                <ul class="grid grid-cols-2 gap-4 text-[#4A4A4A]">
-                    <li>• Research & Analysis</li>
-                    <li>• Problem Solving</li>
-                    <li>• Critical Thinking</li>
-                    <li>• Team Collaboration</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-8 rounded-3xl border border-[#E2E5DA] shadow-sm">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="p-2 bg-[#f3f4ee] rounded-lg">
-                        <i class="fas fa-language text-[#4B6343]"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold">Languages</h3>
-                </div>
-                <div class="space-y-4">
-                    <div>
-                        <span class="font-bold">English (TOEFL iBT):</span> 97/120
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="px-3 py-1 bg-[#f3f4ee] rounded-full text-sm">Bengali (Native)</span>
-                        <span class="px-3 py-1 bg-[#f3f4ee] rounded-full text-sm">Hindi (Fluent)</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-            <section id="contact" class="py-24 bg-white border-t border-[#E2E5DA] rounded-[48px] mb-20 shadow-sm">
-                <div class="px-8 lg:px-12">
-                    <div class="flex flex-col lg:flex-row items-start justify-between gap-16">
-                        
-                        <div class="flex-1">
-                            <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-4">Let's Connect</h2>
-                            <p class="text-[#6B6B6B] mb-10 max-w-sm italic">
-                                Always feel free to contact me. I'm always open to discussing new opportunities, collaborations, or interesting projects.
-                            </p>
-
-                            <div class="space-y-6">
-                                <div class="flex items-center gap-4 group">
-                                    <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A] transition-colors group-hover:bg-[#6D8B5A] group-hover:text-white">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-widest">Email Me</p>
-                                        <a href="mailto:bidisha.dash28@gmail.com" class="text-[#1F1F1F] font-semibold hover:text-[#6D8B5A]">bidisha.dash28@gmail.com</a>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center gap-4 group">
-                                    <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A] transition-colors group-hover:bg-[#6D8B5A] group-hover:text-white">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-widest">Call Me</p>
-                                        <span class="text-[#1F1F1F] font-semibold">+91 7439648770</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center gap-4 group">
-                                    <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A] transition-colors group-hover:bg-[#6D8B5A] group-hover:text-white">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-widest">Location</p>
-                                        <span class="text-[#1F1F1F] font-semibold">Howrah, West Bengal, India</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center gap-4 group">
-                                    <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A] transition-colors group-hover:bg-[#6D8B5A] group-hover:text-white">
-                                        <i class="fa-brands fa-linkedin-in"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-widest">LinkedIn</p>
-                                        <a href="https://www.linkedin.com/in/bidisha-dash-684aab2b0/" target="_blank" class="text-[#1F1F1F] font-semibold hover:text-[#6D8B5A]">linkedin.com/in/bidisha-dash</a>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center gap-4 group">
-                                    <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A] transition-colors group-hover:bg-[#6D8B5A] group-hover:text-white">
-                                        <i class="fa-brands fa-github"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-[#888] uppercase tracking-widest">GitHub</p>
-                                        <a href="https://bidisha-22.github.io" target="_blank" class="text-[#1F1F1F] font-semibold hover:text-[#6D8B5A]">bidisha-22.github.io</a>
-                                    </div>
-                                </div>
+                    <div class="md:col-span-8 space-y-8">
+                        <div class="bg-white p-8 rounded-3xl border border-[#E2E5DA] shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-code text-[#4B6343] mr-2"></i> Programming Libraries</h3>
+                            <ul class="grid grid-cols-2 gap-4 text-[#4A4A4A]">
+                                <li>• Pandas & NumPy</li>
+                                <li>• Scikit-learn</li>
+                                <li>• TensorFlow</li>
+                                <li>• Matplotlib/Seaborn</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl border border-[#E2E5DA] shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-language text-[#4B6343] mr-2"></i> Languages</h3>
+                            <p class="font-bold">English (TOEFL): 97/120</p>
+                            <div class="flex gap-4 mt-2">
+                                <span class="px-3 py-1 bg-[#f3f4ee] rounded-full text-sm">Bengali (Native)</span>
+                                <span class="px-3 py-1 bg-[#f3f4ee] rounded-full text-sm">Hindi (Fluent)</span>
                             </div>
                         </div>
-
-                        <div class="flex-1 bg-[#F8F7F2] p-8 rounded-[32px] border border-[#E2E5DA]">
-                            <h3 class="text-2xl font-serif font-bold text-[#1F1F1F] mb-6">Send Message</h3>
-                            <form class="space-y-4">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
-                                    <input type="email" placeholder="Your Email" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
-                                </div>
-                                <input type="text" placeholder="Subject" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
-                                <textarea rows="4" placeholder="Your Message" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"></textarea>
-                                
-                                <button type="submit" class="w-full py-4 bg-[#6D8B5A] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#6D8B5A]/20 transition-all transform hover:-translate-y-1">
-                                    Send Message <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
-                                </button>
-                            </form>
-                        </div>
-
                     </div>
                 </div>
             </section>
-        </div>
-        
-        <div class="botanical-bottom"></div>
-    </main>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-   // 1. TYPING EFFECT FOR THE NAME (Two Lines)
-var typedName = new Typed('#typing-effect', {
-    // Adding <br> forces "Dash" to the second line
-    strings: ['<span style="color: #6D8B5A;">Bidisha</span><br><span style="color: #1F1F1F;">Dash</span>'],
-    typeSpeed: 100,
-    loop: false,
-    showCursor: true,
-    cursorChar: '|',
-    onComplete: (self) => {
-        self.cursor.classList.add('typed-cursor--blink');
-        startMissionTyping(); 
-    }
-});
 
-// 2. TYPING EFFECT FOR THE MISSION SENTENCES
-function startMissionTyping() {
-    var typedMission = new Typed('#typewriter-mission', {
-        strings: [
-            'Aspiring sustainable agriculture researcher', 
-            'Agricultural data science enthusiast', 
-            'Integrated disease management advocate',
-            'Food security champion'
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        startDelay: 500,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
-    });
-    }
-</script>
+            <section id="contact" class="py-20 border-t border-[#E2E5DA]/50 mb-20">
+                <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-12">Let's Connect</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div class="space-y-6">
+                        <p class="text-[#6B6B6B] italic mb-8">Open for discussions on Ag-Tech research and collaborations.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#EEF1E7] flex items-center justify-center text-[#6D8B5A]"><i class="fa-solid fa-envelope"></i></div>
+                            <a href="mailto:bidisha.dash28@gmail.com" class="font-semibold">bidisha.dash28@gmail.com</a>
+                        </div>
+                    </div>
+                    <form class="space-y-4 bg-white p-8 rounded-3xl border border-[#E2E5DA]">
+                        <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-[#F8F7F2]">
+                        <textarea rows="4" placeholder="Your Message" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-[#F8F7F2]"></textarea>
+                        <button type="submit" class="w-full py-4 bg-[#6D8B5A] text-white font-bold rounded-xl">Send Message</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typedName = new Typed('#typing-effect', {
+            strings: ['<span style="color: #6D8B5A;">Bidisha</span><br><span style="color: #1F1F1F;">Dash</span>'],
+            typeSpeed: 100,
+            showCursor: true,
+            onComplete: (self) => { startMissionTyping(); }
+        });
+
+        function startMissionTyping() {
+            new Typed('#typewriter-mission', {
+                strings: ['Aspiring sustainable agriculture researcher', 'Agricultural data science enthusiast', 'Food security champion'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true
+            });
+        }
+    </script>
 </body>
 </html>
