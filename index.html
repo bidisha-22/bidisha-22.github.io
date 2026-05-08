@@ -123,6 +123,25 @@
             vertical-align: middle;
             margin-left: 4px;
         }
+        /* Fix for Section Overlap and Sidebar Alignment */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    overflow-x: hidden;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    clear: both; /* Prevents floating elements from overlapping */
+    background-color: var(--bg-cream);
+}
+
+/* Ensure cards in Education/Skills stay within their container */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
     </style>
 </head>
 <body>
