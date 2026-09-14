@@ -18,6 +18,10 @@
             --nav-text-light: #EEF1E7;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             background-color: var(--bg-cream); 
             color: var(--text-dark); 
@@ -135,8 +139,8 @@ svg path {
                             <span id="typewriter-mission"></span>
                         </h4>
                         <div class="flex gap-5">
-                            <button class="btn-green">View My Work</button>
-                            <button class="btn-white">Download CV</button>
+                            <a href="#projects" class="btn-green inline-flex items-center justify-center">View My Work</a>
+                            <a href="CV_DASH_BIDISHA.pdf" target="_blank" download class="btn-white inline-flex items-center justify-center gap-2"><i class="fa-solid fa-download text-xs text-[#6D8B5A]"></i> Download CV</a>
                         </div>
                     </div>
                     <div class="relative">
@@ -476,6 +480,184 @@ svg path {
 </div>
     </div>
 </section>
+
+            <!-- PROJECTS SECTION -->
+            <section id="projects" class="py-20 border-t border-[#E2E5DA]/50">
+                <div class="mb-12">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-[#6D8B5A] bg-[#EEF1E7] px-3 py-1 rounded-full border border-[#6D8B5A]/20">Featured Research & Engineering</span>
+                    </div>
+                    <h2 class="text-4xl font-serif font-bold text-[#1F1F1F] mb-3">Featured Projects <span class="text-[#6D8B5A]">🔬</span></h2>
+                    <p class="text-[#6B6B6B] italic max-w-2xl">Bridging agricultural pathology and computer vision to solve critical crop protection and food security challenges.</p>
+                    <div class="w-20 h-1 bg-[#6D8B5A] rounded-full mt-4"></div>
+                </div>
+
+                <!-- Flagship Project Card: EYESPOT -->
+                <div class="bg-white border border-[#E2E5DA] rounded-[36px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    
+                    <!-- Media / Visual Preview Section -->
+                    <div class="relative bg-[#12372A] border-b border-[#E2E5DA] overflow-hidden group">
+                        <img src="assets/val_predictions_batch.jpg" alt="YOLO11m Sugarcane Disease Instance Segmentation" class="w-full h-72 md:h-96 object-cover object-center opacity-90 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#12372A] via-[#12372A]/30 to-transparent"></div>
+                        
+                        <!-- Badges floating over image -->
+                        <div class="absolute top-6 left-6 right-6 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-[#12372A]/90 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full border border-white/15 flex items-center gap-1.5 shadow-md">
+                                    <i class="fa-solid fa-microscope text-[#6D8B5A]"></i> Two-Stage Deep Learning Pipeline
+                                </span>
+                                <span class="bg-[#6D8B5A]/95 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                    <i class="fa-solid fa-shield-halved"></i> Crop Protection AI
+                                </span>
+                            </div>
+                            <span class="bg-white/90 backdrop-blur-md text-[#12372A] text-xs font-bold px-3 py-1 rounded-full border border-white/50 shadow-md">
+                                2026 Research
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <p class="text-xs uppercase tracking-widest text-[#EEF1E7]/90 font-bold mb-1"><i class="fa-solid fa-building-columns text-[#6D8B5A] mr-1.5"></i> AWaDH-Annam AI • IIT Ropar Collaboration</p>
+                            <h3 class="text-2xl md:text-3xl font-serif font-bold text-white leading-snug drop-shadow-md">
+                                EYESPOT: Sugarcane Foliar Disease Detection & Instance Segmentation System
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Project Content Body -->
+                    <div class="p-8 md:p-10 space-y-8">
+                        
+                        <!-- Action Bar & Overview -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E2E5DA]">
+                            <p class="text-[#6B6B6B] leading-relaxed text-base flex-1">
+                                Developed in collaboration with <strong class="text-[#1F1F1F]">AWaDH-Annam AI, Indian Institute of Technology Ropar (IIT Ropar)</strong>. An intelligent two-stage computer vision architecture engineered to screen, localize, and segment foliar fungal and viral infections in sugarcane—enabling early detection of <strong class="text-[#1F1F1F]">Eye Spot (<em>Bipolaris sacchari</em>)</strong>, Brown Spot, Red Rot, Rust, Sett Rot, Mosaic, and Yellow Leaf Disease to support precision chemical application and minimize yield loss. Built upon a novel field-collected dataset with <strong class="text-[#1F1F1F]">16,506 manually annotated polygons</strong> and integrated agronomic management recommendations.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://github.com/bidisha-22/Sugarcane-Eyespot-Disease-Detection-System" target="_blank" class="btn-green inline-flex items-center gap-2 text-sm py-3 px-5 shadow-sm hover:shadow-md">
+                                    <i class="fa-brands fa-github text-lg"></i> GitHub Repository <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Two-Stage Architecture Breakdown -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-[#888] mb-4">Pipeline Architecture</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                
+                                <!-- Stage 1 Card -->
+                                <div class="bg-[#F8F7F2] p-6 rounded-[24px] border border-[#E2E5DA] relative hover:border-[#6D8B5A]/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span class="text-xs font-bold text-[#6D8B5A] uppercase tracking-wider bg-white px-3 py-1 rounded-full border border-[#E2E5DA]">Stage 1 • Binary Screening</span>
+                                        <span class="text-xs font-bold text-[#12372A] bg-[#EEF1E7] px-2.5 py-0.5 rounded-md">300 × 300</span>
+                                    </div>
+                                    <h5 class="text-lg font-bold text-[#1F1F1F] mb-2">EfficientNet-B3 Classifier</h5>
+                                    <p class="text-xs text-[#6B6B6B] leading-relaxed mb-4">
+                                        Performs ultra-rapid initial screening to separate healthy leaves from infected samples. Bypasses unnecessary heavy segmentation for healthy crops, drastically reducing computational overhead in field deployments.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-[#E2E5DA] text-xs">
+                                        <span class="text-[#6B6B6B]">Validation Accuracy (F1: 99.91%)</span>
+                                        <span class="font-bold text-[#6D8B5A] text-sm">99.86%</span>
+                                    </div>
+                                </div>
+
+                                <!-- Stage 2 Card -->
+                                <div class="bg-[#EEF1E7] p-6 rounded-[24px] border border-[#6D8B5A]/30 relative hover:border-[#6D8B5A] transition-colors">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span class="text-xs font-bold text-[#12372A] uppercase tracking-wider bg-white/70 px-3 py-1 rounded-full border border-[#6D8B5A]/20">Stage 2 • Instance Segmentation</span>
+                                        <span class="text-xs font-bold text-[#12372A] bg-white/70 px-2.5 py-0.5 rounded-md">768 × 768</span>
+                                    </div>
+                                    <h5 class="text-lg font-bold text-[#1F1F1F] mb-2">YOLO11m-seg Network</h5>
+                                    <p class="text-xs text-[#6B6B6B] leading-relaxed mb-4">
+                                        Triggered strictly when leaf tissue is classified as unhealthy. Generates pixel-level polygonal segmentation masks, bounding boxes, lesion counts, and severity quantification across 8 distinct disease classes.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-[#6D8B5A]/20 text-xs">
+                                        <span class="text-[#6B6B6B]">Box mAP@50 / Mask mAP@50</span>
+                                        <span class="font-bold text-[#12372A] text-sm">86.19% / 83.04%</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Key Metrics Grid -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-[#888] mb-4">Key Validated Performance Metrics</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-[#F8F7F2] p-5 rounded-2xl border border-[#E2E5DA] text-center">
+                                    <span class="text-2xl md:text-3xl font-bold text-[#6D8B5A]">99.86%</span>
+                                    <p class="text-[11px] font-bold text-[#4A4A4A] mt-1">Binary Accuracy</p>
+                                    <p class="text-[10px] text-[#888]">EfficientNet-B3 (99.91% F1)</p>
+                                </div>
+                                <div class="bg-[#F8F7F2] p-5 rounded-2xl border border-[#E2E5DA] text-center">
+                                    <span class="text-2xl md:text-3xl font-bold text-[#12372A]">86.19%</span>
+                                    <p class="text-[11px] font-bold text-[#4A4A4A] mt-1">Box mAP@50</p>
+                                    <p class="text-[10px] text-[#888]">71.41% mAP@50-95</p>
+                                </div>
+                                <div class="bg-[#F8F7F2] p-5 rounded-2xl border border-[#E2E5DA] text-center">
+                                    <span class="text-2xl md:text-3xl font-bold text-[#6D8B5A]">83.04%</span>
+                                    <p class="text-[11px] font-bold text-[#4A4A4A] mt-1">Mask mAP@50</p>
+                                    <p class="text-[10px] text-[#888]">63.04% mAP@50-95</p>
+                                </div>
+                                <div class="bg-[#F8F7F2] p-5 rounded-2xl border border-[#E2E5DA] text-center">
+                                    <span class="text-2xl md:text-3xl font-bold text-[#12372A]">16,506</span>
+                                    <p class="text-[11px] font-bold text-[#4A4A4A] mt-1">Polygon Annotations</p>
+                                    <p class="text-[10px] text-[#888]">Field & Curated Dataset</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field Diagnosis & Interactive UI Highlight -->
+                        <div class="bg-[#12372A] text-white p-7 rounded-[28px] shadow-lg flex flex-col md:flex-row items-center gap-8">
+                            <div class="w-full md:w-44 flex-shrink-0 flex justify-center">
+                                <img src="assets/eyespot_detection_sample.png" alt="Sugarcane In-field Eye Spot Detection" class="h-64 rounded-2xl object-cover border-2 border-white/20 shadow-md">
+                            </div>
+                            <div class="space-y-3 flex-1">
+                                <div class="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs text-[#EEF1E7]">
+                                    <i class="fa-solid fa-laptop-code text-[#6D8B5A]"></i>
+                                    <span>Streamlit Dashboard Application</span>
+                                </div>
+                                <h5 class="text-xl font-serif font-bold text-white">Full-Stack Diagnostic Dashboard (<code>app.py</code>)</h5>
+                                <p class="text-xs text-[#EEF1E7]/80 leading-relaxed">
+                                    Features a production-ready web dashboard with real-time image uploads, interactive confidence (0.25) & IoU (0.45) threshold sliders, instant lesion segmentation overlays, severity categorization, and automated directory routing for agricultural extensions and agronomists in the field.
+                                </p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="bg-white/10 text-[#EEF1E7] text-[11px] px-2.5 py-1 rounded-lg">Real-Time Inference</span>
+                                    <span class="bg-white/10 text-[#EEF1E7] text-[11px] px-2.5 py-1 rounded-lg">Lesion Severity Index</span>
+                                    <span class="bg-white/10 text-[#EEF1E7] text-[11px] px-2.5 py-1 rounded-lg">Automated Folder Sorting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack Tags -->
+                        <div class="pt-2">
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-[#888] mb-3">Technologies & Frameworks</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-brands fa-python text-[#6D8B5A]"></i> Python 3.10+
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-fire text-[#6D8B5A]"></i> PyTorch & Torchvision
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-brain text-[#6D8B5A]"></i> YOLO11m-seg (Ultralytics)
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-network-wired text-[#6D8B5A]"></i> EfficientNet-B3
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-desktop text-[#6D8B5A]"></i> Streamlit
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-eye text-[#6D8B5A]"></i> OpenCV
+                                </span>
+                                <span class="px-3 py-1.5 bg-[#EEF1E7] text-[#12372A] font-semibold text-xs rounded-xl border border-[#6D8B5A]/20 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-seedling text-[#6D8B5A]"></i> Agricultural Pathology
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
             </div>
         <section id="certifications" class="py-20 bg-[#F9F9F7]">
     <div class="max-w-6xl mx-auto px-6">
@@ -671,8 +853,6 @@ svg path {
         
         <div class="botanical-bottom"></div>
     </main>
-</body>
-</html>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
@@ -691,6 +871,28 @@ svg path {
                 loop: true
             });
         }
+
+        // Active Navigation Scroll Spy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
