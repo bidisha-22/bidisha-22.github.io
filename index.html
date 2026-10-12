@@ -914,22 +914,58 @@ svg path {
                             </div>
                         </div>
 
-                        <div class="flex-1 bg-[#F8F7F2] p-8 rounded-[32px] border border-[#E2E5DA]">
+                                                <div class="flex-1 bg-[#F8F7F2] p-8 rounded-[32px] border border-[#E2E5DA]">
                             <h3 class="text-2xl font-serif font-bold text-[#1F1F1F] mb-6">Send Message</h3>
-                            <form class="space-y-4">
+                            
+                            <!-- Added id="contact-form" -->
+                            <form id="contact-form" class="space-y-4">
+                                <!-- 1. Web3Forms Access Key: Replace with your key from web3forms.com -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                                <!-- Spam protection honeypot -->
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
-                                    <input type="email" placeholder="Your Email" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
+                                    <input 
+                                        type="text" 
+                                        name="name" 
+                                        placeholder="Your Name" 
+                                        required 
+                                        class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"
+                                    >
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        placeholder="Your Email" 
+                                        required 
+                                        class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"
+                                    >
                                 </div>
-                                <input type="text" placeholder="Subject" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all">
-                                <textarea rows="4" placeholder="Your Message" class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"></textarea>
+                                <input 
+                                    type="text" 
+                                    name="subject" 
+                                    placeholder="Subject" 
+                                    required 
+                                    class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"
+                                >
+                                <textarea 
+                                    rows="4" 
+                                    name="message" 
+                                    placeholder="Your Message" 
+                                    required 
+                                    class="w-full px-5 py-4 rounded-xl border border-[#E2E5DA] bg-white focus:outline-none focus:ring-2 focus:ring-[#6D8B5A]/20 transition-all"
+                                ></textarea>
                                 
-                                <button type="submit" class="w-full py-4 bg-[#6D8B5A] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#6D8B5A]/20 transition-all transform hover:-translate-y-1">
-                                    Send Message <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
+                                <button 
+                                    type="submit" 
+                                    id="submit-btn" 
+                                    class="w-full py-4 bg-[#6D8B5A] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#6D8B5A]/20 transition-all transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    <span id="btn-text">Send Message</span>
+                                    <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
                                 </button>
+                                <!-- Status / feedback message text -->
+                                <p id="form-status" class="text-sm text-center font-medium transition-all"></p>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </section>
