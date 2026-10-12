@@ -1014,5 +1014,47 @@ svg path {
             });
         });
     </script>
+        <script>
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const statusMsg = document.getElementById('form-status');
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            // UI loading state
+            btnText.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            statusMsg.textContent = '';
+            statusMsg.className = 'text-sm text-center font-medium text-gray-500';
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+                const result = await response.json();
+                if (response.status === 200) {
+                    statusMsg.className = 'text-sm text-center font-medium text-[#6D8B5A]';
+                    statusMsg.textContent = 'Message sent successfully!';
+                    form.reset();
+                } else {
+                    statusMsg.className = 'text-sm text-center font-medium text-red-500';
+                    statusMsg.textContent = result.message || 'Something went wrong. Please try again.';
+                }
+            } catch (error) {
+                statusMsg.className = 'text-sm text-center font-medium text-red-500';
+                statusMsg.textContent = 'Failed to send message. Please check your network connection.';
+            } finally {
+                btnText.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
